@@ -5451,6 +5451,9 @@
   width: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---spacing--1-5x);
   height: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---spacing--1-5x);
   color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-accent-color--accent-primary);
+  background-image: url('../images/maca-diamond.svg');
+  background-position: 0 0;
+  background-size: auto;
   flex: none;
   justify-content: center;
   align-items: center;
@@ -6192,6 +6195,19 @@ img {
   font-size: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h0-heading--h0-line-height);
   line-height: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---base-typography--base-line-height);
   margin-bottom: 1rem;
+}
+
+.paragraph-4 {
+  margin-bottom: 1rem;
+}
+
+.paragraph-5 {
+  margin-bottom: 1.2rem;
+  font-size: .9rem;
+}
+
+.paragraph-6 {
+  font-size: .9rem;
 }
 
 @media screen and (max-width: 991px) {
@@ -7415,6 +7431,17 @@ img {
     justify-content: flex-start;
     align-items: flex-start;
   }
+
+  .mob-but-div {
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 1.6rem;
+    padding-bottom: 1.2rem;
+    display: flex;
+  }
 }
 
 #w-node-d271b380-d577-74c1-a406-1d73e672021d-22cf2a87 {
@@ -7764,7 +7791,7 @@ img {
   grid-area: span 1 / span 2 / span 1 / span 2;
 }
 
-#w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e78-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9a5-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e83-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9b0-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9bb-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e9d-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9cc-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ea8-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9d7-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2eb3-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9e2-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ec2-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9f3-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ecd-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9fe-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ed8-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740ea09-0740e985 {
+#w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e78-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9a5-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e83-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9b0-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9bb-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56.w-node-cc38378c-c994-da3b-6ed8-ff534893a329-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56.w-node-ce00ba61-af76-eef1-a2ec-5a9990b21e33-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e9d-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9cc-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ea8-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9d7-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2eb3-ad6d2e56.w-node-a962ea0a-994b-5e07-8a37-09220740e9e2-0740e985, #w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2eb3-ad6d2e56.w-node-fba9da67-47bf-b40c-755f-937887c14b67-0740e985 {
   grid-area: span 1 / span 1 / span 1 / span 1;
 }
 
