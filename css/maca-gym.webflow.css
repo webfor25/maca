@@ -7440,7 +7440,7 @@ img {
     align-items: center;
     padding-top: 1.6rem;
     padding-bottom: 1.2rem;
-    display: flex;
+    display: none;
   }
 }
 
