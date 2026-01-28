@@ -157,6 +157,7 @@
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h3-heading--h3-size-mobile-l: 1.28rem;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---text-color--text-accent-on-primary: #a68768;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h4-heading--h4-size: 1.41rem;
+  --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a90: #ffffffe6;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h4-heading--h4-size-mobile-l: 1.15rem;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h5-heading--h5-margin-bottom: .7em;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h5-heading--h5-size: 1rem;
@@ -224,7 +225,6 @@
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--accent-primary-a90: #edd4b6;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-primary-a40: #1a1a1a66;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-primary-a10: #1a1a1a1a;
-  --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a90: #ffffffe6;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a60: #fff9;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a50: #ffffff80;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a10: #ffffff1a;
@@ -821,6 +821,9 @@
 }
 
 .grid-layout.memberships-mob {
+  grid-row-gap: 1rem;
+  grid-template-rows: auto;
+  grid-template-columns: minmax(0, 1fr) 1fr;
   max-width: 960px;
   margin-left: auto;
   margin-right: auto;
@@ -910,6 +913,13 @@
 .h3-heading.plans-headings {
   color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---text-color--text-accent-on-primary);
   font-size: 1.5rem;
+  line-height: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h4-heading--h4-size);
+  letter-spacing: -.01em;
+}
+
+.h3-heading.price-heading {
+  color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a90);
+  font-size: 2.1rem;
   line-height: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h4-heading--h4-size);
   letter-spacing: -.01em;
 }
@@ -5611,11 +5621,6 @@
   right: 0;
 }
 
-.utility-width-100---mobile-landscape-parent.utility-text-align-center._w--current {
-  background-color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-bg);
-  color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-text);
-}
-
 .x-center-parent.x-center {
   justify-content: flex-start;
   align-items: center;
@@ -5691,9 +5696,10 @@
   position: relative;
 }
 
-.utility-width-100---mobile-landscape-parent.utility-width-100---mobile-landscape.utility-text-align-center._w--current, .utility-width-100---mobile-landscape-parent.utility-text-align-center._w--current {
+.utility-width-100---mobile-landscape-parent.utility-text-align-center._w--current {
   background-color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-bg);
   color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-text);
+  background-color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-bg);
 }
 
 .x-center-parent, .x-center-parent.x-center {
@@ -5753,10 +5759,9 @@
   color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-neutral-color--neutral-primary);
 }
 
-.utility-width-100---mobile-landscape-parent.utility-width-100---mobile-landscape.utility-text-align-center._w--current {
+.utility-width-100---mobile-landscape-parent.utility-width-100---mobile-landscape.utility-text-align-center._w--current, .utility-width-100---mobile-landscape-parent.utility-text-align-center._w--current {
   background-color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-bg);
   color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-text);
-  background-color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-bg);
 }
 
 .align-center-parent, .align-center-parent.align-center {
@@ -7368,7 +7373,7 @@ img {
     font-weight: 400;
   }
 
-  .h3-heading.plans-headings {
+  .h3-heading.plans-headings, .h3-heading.price-heading {
     color: #a68768;
     letter-spacing: -.01em;
     text-transform: none;
