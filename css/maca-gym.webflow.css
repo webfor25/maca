@@ -158,6 +158,7 @@
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---text-color--text-accent-on-primary: #a68768;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h4-heading--h4-size: 1.41rem;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--neutral-inverse-a90: #ffffffe6;
+  --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-accent-color--accent-primary: #edd4b6;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h4-heading--h4-size-mobile-l: 1.15rem;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h5-heading--h5-margin-bottom: .7em;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---h5-heading--h5-size: 1rem;
@@ -204,7 +205,6 @@
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-border: transparent;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-radius: 0px;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-color-tint--accent-primary-a10: #feb9741a;
-  --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-accent-color--accent-primary: #edd4b6;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-font: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---font--button-font);
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---radius--xl-radius: 1rem;
   --ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---button--button-primary-border-hover: transparent;
@@ -3503,7 +3503,7 @@
 
 .utility-margin-bottom-auto {
   text-transform: none;
-  margin-bottom: auto;
+  margin-bottom: 1.5rem;
   font-style: normal;
   text-decoration: none;
 }
@@ -7373,12 +7373,22 @@ img {
     font-weight: 400;
   }
 
-  .h3-heading.plans-headings, .h3-heading.price-heading {
+  .h3-heading.plans-headings {
     color: #a68768;
     letter-spacing: -.01em;
     text-transform: none;
     font-family: Cinzel, Georgia, sans-serif;
     font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-decoration: none;
+  }
+
+  .h3-heading.price-heading {
+    color: var(--ai-gen-82921b10-4b39-48f0-b346-808cf4903d29-1744566421946---core-accent-color--accent-primary);
+    letter-spacing: -.01em;
+    text-transform: none;
+    font-family: Cinzel, Georgia, sans-serif;
+    font-size: 1.5rem;
     line-height: 1.6rem;
     text-decoration: none;
   }
