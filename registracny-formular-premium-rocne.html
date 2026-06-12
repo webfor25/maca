@@ -21,6 +21,13 @@
     background: #1a1a1a;
   }
 
+  .nav .nav-container {
+    width: min(1080px, calc(100% - 3rem));
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .maca-agreement {
     --maca-agreement-bg: #1a1a1a;
     --maca-agreement-surface: rgba(255, 255, 255, 0.035);
@@ -61,7 +68,7 @@
   .maca-agreement__title {
     margin: 0;
     color: var(--maca-agreement-accent);
-    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-size: 3.4rem;
     font-weight: 600;
     line-height: 1.05;
   }
@@ -98,7 +105,7 @@
   .maca-agreement__plan-name {
     margin: 0;
     color: var(--maca-agreement-text);
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-size: 2.4rem;
     font-weight: 700;
     line-height: 1.1;
   }
@@ -113,8 +120,9 @@
   .maca-agreement__plan-price {
     justify-self: end;
     color: var(--maca-agreement-accent);
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-size: 2.25rem;
     font-weight: 700;
+    line-height: 1.15;
     white-space: nowrap;
   }
 
@@ -174,7 +182,7 @@
   .maca-agreement__document {
     max-height: 640px;
     overflow: auto;
-    padding: clamp(1.5rem, 4vw, 3rem);
+    padding: 3rem;
     border-radius: 0.6rem;
     background: #f7f2ea;
     color: #1f1a16;
@@ -183,7 +191,7 @@
 
   .maca-agreement__document h3 {
     margin: 0 0 0.35rem;
-    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    font-size: 2.3rem;
     font-weight: 700;
     line-height: 1.1;
   }
@@ -235,7 +243,32 @@
     font-weight: 600;
   }
 
-  .maca-agreement__member-field input {
+  .maca-agreement__optional {
+    color: rgba(31, 26, 22, 0.62);
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  .maca-agreement__same-address {
+    grid-column: 2;
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    color: rgba(31, 26, 22, 0.78);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .maca-agreement__same-address input {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0.18rem 0 0;
+    accent-color: #8a6d51;
+    flex: 0 0 auto;
+  }
+
+  .maca-agreement__member-field input:not([type="checkbox"]) {
     width: 100%;
     min-height: 2.55rem;
     padding: 0.65rem 0.75rem;
@@ -246,12 +279,12 @@
     font: inherit;
   }
 
-  .maca-agreement__member-field input:focus {
+  .maca-agreement__member-field input:not([type="checkbox"]):focus {
     border-color: #8a6d51;
     outline: 3px solid rgba(138, 109, 81, 0.2);
   }
 
-  .maca-agreement__member-field input.is-invalid {
+  .maca-agreement__member-field input:not([type="checkbox"]).is-invalid {
     border-color: #c0392b;
     background: #fff3f1;
     outline: 3px solid rgba(192, 57, 43, 0.14);
@@ -362,6 +395,10 @@
   }
 
   @media (max-width: 640px) {
+    .nav .nav-container {
+      width: calc(100% - 2rem);
+    }
+
     .maca-agreement {
       padding: 8.5rem 1rem 4rem;
     }
@@ -400,7 +437,107 @@
     .maca-agreement__field-error {
       grid-column: 1;
     }
+
+
+    .maca-agreement__same-address {
+      grid-column: 1;
+    }
   }
+
+  @media (max-width: 900px) {
+    .maca-agreement__title {
+      font-size: 2.9rem;
+      line-height: 1.06;
+    }
+
+    .maca-agreement__intro,
+    .maca-agreement__plan-description,
+    .maca-agreement__document p,
+    .maca-agreement__document li,
+    .maca-agreement__member-field,
+    .maca-agreement__consent {
+      font-size: 1.05rem;
+    }
+
+    .maca-agreement__document h3 {
+      font-size: 2rem;
+      line-height: 1.12;
+    }
+
+    .maca-agreement__document h4 {
+      font-size: 1.16rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .maca-agreement__eyebrow,
+    .maca-agreement__plan-label {
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .maca-agreement__title {
+      font-size: 2.55rem;
+      line-height: 1.08;
+    }
+
+    .maca-agreement__intro {
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .maca-agreement__plan {
+      padding: 1.15rem;
+    }
+
+    .maca-agreement__plan-name {
+      font-size: 2rem;
+    }
+
+    .maca-agreement__plan-price {
+      font-size: 1.85rem;
+    }
+
+    .maca-agreement__plan-description,
+    .maca-agreement__document p,
+    .maca-agreement__document li,
+    .maca-agreement__member-field,
+    .maca-agreement__consent {
+      font-size: 1.06rem;
+      line-height: 1.62;
+    }
+
+    .maca-agreement__document-shell {
+      padding: 0.75rem;
+    }
+
+    .maca-agreement__document {
+      max-height: 68vh;
+      padding: 1.2rem;
+    }
+
+    .maca-agreement__document h3 {
+      font-size: 1.85rem;
+      line-height: 1.14;
+    }
+
+    .maca-agreement__document h4 {
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .maca-agreement__pill,
+    .maca-agreement__hint,
+    .maca-agreement__button {
+      font-size: 1rem;
+    }
+
+    .maca-agreement__member-field input:not([type="checkbox"]) {
+      min-height: 3rem;
+      font-size: 1rem;
+    }
+  }
+
 </style>
 
   <div class="nav">
@@ -667,9 +804,13 @@
               </div>
 
               <div class="maca-agreement__member-field">
-                <label for="maca-member-correspondence-address">Korešpondenčná adresa:</label>
-                <input id="maca-member-correspondence-address" name="member_correspondence_address" type="text" autocomplete="street-address" required />
-                <span class="maca-agreement__field-error">Vyplňte korešpondenčnú adresu.</span>
+                <label for="maca-member-correspondence-address">Korešpondenčná adresa <span class="maca-agreement__optional">(voliteľné)</span>:</label>
+                <input id="maca-member-correspondence-address" name="member_correspondence_address" type="text" autocomplete="street-address" />
+                <label class="maca-agreement__same-address" for="maca-member-same-address">
+                  <input id="maca-member-same-address" name="member_same_correspondence_address" type="checkbox" />
+                  <span>Moja korešpondenčná adresa je rovnaká ako adresa trvalého bydliska.</span>
+                </label>
+                <span class="maca-agreement__field-error">Toto pole je voliteľné.</span>
               </div>
 
               <div class="maca-agreement__member-field">
@@ -863,6 +1004,9 @@
     var memberFields = Array.prototype.slice.call(document.querySelectorAll("#maca-agreement-member-fields input[required]"));
     var errorMessage = document.getElementById("maca-agreement-error");
     var documentPanel = document.querySelector(".maca-agreement__document");
+    var permanentAddress = document.getElementById("maca-member-address");
+    var correspondenceAddress = document.getElementById("maca-member-correspondence-address");
+    var sameAddress = document.getElementById("maca-member-same-address");
 
     if (!required || !continueButton) return;
 
@@ -927,6 +1071,30 @@
         }
       });
     });
+
+    function syncSameAddress() {
+      if (!sameAddress || !permanentAddress || !correspondenceAddress) return;
+
+      if (sameAddress.checked) {
+        correspondenceAddress.value = permanentAddress.value;
+        correspondenceAddress.setAttribute("readonly", "readonly");
+      } else {
+        correspondenceAddress.removeAttribute("readonly");
+      }
+    }
+
+    if (sameAddress && permanentAddress && correspondenceAddress) {
+      sameAddress.addEventListener("change", function () {
+        syncSameAddress();
+        syncConsentState(false);
+      });
+
+      permanentAddress.addEventListener("input", function () {
+        if (sameAddress.checked) {
+          syncSameAddress();
+        }
+      });
+    }
 
     continueButton.addEventListener("click", function (event) {
       if (!syncConsentState(true)) {
