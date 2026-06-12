@@ -1,0 +1,723 @@
+<meta charset="utf-8" />
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+  .maca-agreement {
+    --maca-agreement-bg: #1a1a1a;
+    --maca-agreement-surface: rgba(255, 255, 255, 0.035);
+    --maca-agreement-surface-strong: rgba(255, 255, 255, 0.055);
+    --maca-agreement-border: rgba(255, 255, 255, 0.14);
+    --maca-agreement-border-strong: rgba(237, 212, 182, 0.38);
+    --maca-agreement-accent: #edd4b6;
+    --maca-agreement-accent-hover: #a68678;
+    --maca-agreement-text: #ffffff;
+    --maca-agreement-text-soft: rgba(255, 255, 255, 0.72);
+    --maca-agreement-text-muted: rgba(255, 255, 255, 0.52);
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background: var(--maca-agreement-bg);
+    color: var(--maca-agreement-text);
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .maca-agreement * {
+    box-sizing: border-box;
+  }
+
+  .maca-agreement__inner {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+  }
+
+  .maca-agreement__eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--maca-agreement-accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .maca-agreement__title {
+    margin: 0;
+    color: var(--maca-agreement-accent);
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .maca-agreement__intro {
+    max-width: 760px;
+    margin: 1rem 0 2rem;
+    color: var(--maca-agreement-text-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .maca-agreement__plan {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    margin: 0 0 1.5rem;
+    padding: 1.2rem 1.25rem;
+    border: 1px solid var(--maca-agreement-border-strong);
+    border-radius: 0.75rem;
+    background: var(--maca-agreement-surface-strong);
+  }
+
+  .maca-agreement__plan-label {
+    margin: 0 0 0.35rem;
+    color: var(--maca-agreement-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .maca-agreement__plan-name {
+    margin: 0;
+    color: var(--maca-agreement-text);
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .maca-agreement__plan-description {
+    margin: 0.55rem 0 0;
+    color: var(--maca-agreement-text-soft);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .maca-agreement__plan-price {
+    justify-self: end;
+    color: var(--maca-agreement-accent);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .maca-agreement__layout {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .maca-agreement__viewer {
+    overflow: hidden;
+    border: 1px solid var(--maca-agreement-border);
+    border-radius: 0.9rem;
+    background: var(--maca-agreement-surface);
+  }
+
+  .maca-agreement__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    padding: 0.95rem 1.1rem;
+    border-bottom: 1px solid var(--maca-agreement-border);
+    background: var(--maca-agreement-surface-strong);
+  }
+
+  .maca-agreement__toolbar-left,
+  .maca-agreement__toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .maca-agreement__pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.3rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--maca-agreement-border);
+    border-radius: 999px;
+    color: var(--maca-agreement-text-soft);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .maca-agreement__pill.is-accent {
+    border-color: var(--maca-agreement-border-strong);
+    color: var(--maca-agreement-accent);
+  }
+
+  .maca-agreement__document-shell {
+    padding: 1.25rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  }
+
+  .maca-agreement__document {
+    max-height: 640px;
+    overflow: auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: 0.6rem;
+    background: #f7f2ea;
+    color: #1f1a16;
+    box-shadow: inset 0 0 0 1px rgba(50, 38, 24, 0.08);
+  }
+
+  .maca-agreement__document h3 {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.5rem, 3vw, 2.3rem);
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .maca-agreement__document h4 {
+    margin: 1.5rem 0 0.7rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .maca-agreement__document p,
+  .maca-agreement__document li {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .maca-agreement__document p {
+    margin: 0 0 1rem;
+  }
+
+  .maca-agreement__document ul {
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+  }
+
+  .maca-agreement__member-fields {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+  }
+
+  .maca-agreement__member-field {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.42fr) minmax(15rem, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  .maca-agreement__member-field::before {
+    content: "•";
+    position: absolute;
+    margin-left: -1.1rem;
+  }
+
+  .maca-agreement__member-field label {
+    font-weight: 600;
+  }
+
+  .maca-agreement__member-field input {
+    width: 100%;
+    min-height: 2.55rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid rgba(31, 26, 22, 0.28);
+    border-radius: 0.35rem;
+    background: #fffaf2;
+    color: #1f1a16;
+    font: inherit;
+  }
+
+  .maca-agreement__member-field input:focus {
+    border-color: #8a6d51;
+    outline: 3px solid rgba(138, 109, 81, 0.2);
+  }
+
+  .maca-agreement__member-field input.is-invalid {
+    border-color: #c0392b;
+    background: #fff3f1;
+    outline: 3px solid rgba(192, 57, 43, 0.14);
+  }
+
+  .maca-agreement__field-error {
+    display: none;
+    grid-column: 2;
+    margin-top: -0.35rem;
+    color: #a92418;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .maca-agreement__member-field.is-invalid .maca-agreement__field-error {
+    display: block;
+  }
+
+  .maca-agreement__form-error {
+    display: none;
+    margin: 0 1.25rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(192, 57, 43, 0.45);
+    border-radius: 0.5rem;
+    background: rgba(192, 57, 43, 0.14);
+    color: #ffd8d3;
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .maca-agreement__form-error.is-visible {
+    display: block;
+  }
+
+  .maca-agreement__consents {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.45rem 1.25rem 0;
+  }
+
+  .maca-agreement__consent {
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    color: var(--maca-agreement-text-soft);
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .maca-agreement__consent input {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0.12rem 0 0;
+    accent-color: var(--maca-agreement-accent);
+  }
+
+  .maca-agreement__consent strong {
+    color: var(--maca-agreement-text);
+  }
+
+  .maca-agreement__consent small {
+    color: var(--maca-agreement-text-muted);
+    font-size: 0.92em;
+  }
+
+  .maca-agreement__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem 0;
+  }
+
+  .maca-agreement__hint {
+    color: var(--maca-agreement-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .maca-agreement__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.2rem;
+    padding: 0.9rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background: var(--maca-agreement-accent);
+    color: #1a1a1a;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, opacity 180ms ease;
+  }
+
+  .maca-agreement__button:hover {
+    background: var(--maca-agreement-accent-hover);
+  }
+
+  .maca-agreement__button[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 640px) {
+    .maca-agreement {
+      padding: 4rem 1rem;
+    }
+
+    .maca-agreement__toolbar {
+      align-items: stretch;
+    }
+
+    .maca-agreement__toolbar-left,
+    .maca-agreement__toolbar-right,
+    .maca-agreement__actions {
+      width: 100%;
+    }
+
+    .maca-agreement__actions {
+      align-items: stretch;
+    }
+
+    .maca-agreement__button {
+      width: 100%;
+    }
+
+    .maca-agreement__plan {
+      grid-template-columns: 1fr;
+    }
+
+    .maca-agreement__plan-price {
+      justify-self: start;
+    }
+
+    .maca-agreement__member-field {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .maca-agreement__field-error {
+      grid-column: 1;
+    }
+  }
+</style>
+
+<section class="maca-agreement" aria-labelledby="maca-agreement-title">
+  <div class="maca-agreement__inner">
+    <p class="maca-agreement__eyebrow">Dokumenty a súhlasy</p>
+    <h2 class="maca-agreement__title" id="maca-agreement-title">Zmluva o členstve a potvrdenie súhlasu</h2>
+    <p class="maca-agreement__intro">
+      Pred dokončením registrácie si prosím prečítajte zmluvu o členstve vo fitness centre Maca Gym &amp; SPA
+      a potvrďte povinný súhlas. Táto sekcia slúži ako obchodné podmienky bez podpisového poľa.
+    </p>
+
+    <div class="maca-agreement__plan" aria-label="Vybraný ročný plán členstva">
+      <div>
+        <p class="maca-agreement__plan-label">Vybraný ročný plán</p>
+        <h3 class="maca-agreement__plan-name">Štart</h3>
+        <p class="maca-agreement__plan-description">
+          Pre každého, kto chce začať pravidelne trénovať a mať flexibilný vstup do gymu.
+        </p>
+      </div>
+      <div class="maca-agreement__plan-price">390 € / rok</div>
+    </div>
+
+    <div class="maca-agreement__layout" id="maca-agreement-widget">
+      <div class="maca-agreement__viewer">
+        <div class="maca-agreement__toolbar">
+          <div class="maca-agreement__toolbar-left">
+            <span class="maca-agreement__pill is-accent">Zmluva o členstve</span>
+            <span class="maca-agreement__pill">1 dokument</span>
+          </div>
+        </div>
+
+        <div class="maca-agreement__document-shell">
+          <div class="maca-agreement__document">
+            <h3>ZMLUVA O ČLENSTVE vo fitness centre Maca Gym &amp; SPA</h3>
+            <p>uzatvorená podľa § 52 Zákona č. 40/1964 Zb. Občiansky zákonník</p>
+
+            <h4>Zmluvné strany</h4>
+            <p><strong>1. Prevádzkovateľ</strong></p>
+            <ul>
+              <li>Obchodné meno: OUTFITO, s.r.o.</li>
+              <li>Sídlo: Továrenská 12, Bratislava 81109</li>
+              <li>IČO: 55 333 028</li>
+              <li>DIČ: 2121973986</li>
+              <li>IČ DPH: SK2121973986</li>
+              <li>Zapísaný: Obchodný register Mestského súdu Bratislava III odd. Sro vložka č. 168879/B</li>
+              <li>Zastúpený: Mgr. Vladimír Lexa, konateľ</li>
+              <li>Emailová adresa: macagymspa@gmail.com</li>
+              <li>Telefónne číslo: +421 949 001 455</li>
+              <li>Prevádzka: Maca Gym &amp; SPA, Radlinského 27, 811 03 Bratislava</li>
+              <li>Webová stránka: www.macagym.sk</li>
+              <li>Bankové spojenie: SK29 1100 0000 0029 4515 2491</li>
+            </ul>
+            <p>(ďalej len „Prevádzkovateľ“)</p>
+
+            <p><strong>2. Člen</strong></p>
+            <div class="maca-agreement__member-fields" id="maca-agreement-member-fields">
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-name">Meno a priezvisko:</label>
+                <input id="maca-member-name" name="member_name" type="text" autocomplete="name" required />
+                <span class="maca-agreement__field-error">Vyplňte meno a priezvisko.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-address">Adresa trvalého bydliska:</label>
+                <input id="maca-member-address" name="member_address" type="text" autocomplete="street-address" required />
+                <span class="maca-agreement__field-error">Vyplňte adresu trvalého bydliska.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-correspondence-address">Korešpondenčná adresa:</label>
+                <input id="maca-member-correspondence-address" name="member_correspondence_address" type="text" autocomplete="street-address" required />
+                <span class="maca-agreement__field-error">Vyplňte korešpondenčnú adresu.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-birth-date">Dátum narodenia:</label>
+                <input id="maca-member-birth-date" name="member_birth_date" type="date" required />
+                <span class="maca-agreement__field-error">Vyplňte dátum narodenia.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-email">E-mail:</label>
+                <input id="maca-member-email" name="member_email" type="email" autocomplete="email" required />
+                <span class="maca-agreement__field-error">Vyplňte platnú e-mailovú adresu.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-phone">Telefón:</label>
+                <input id="maca-member-phone" name="member_phone" type="tel" autocomplete="tel" required />
+                <span class="maca-agreement__field-error">Vyplňte telefónne číslo.</span>
+              </div>
+            </div>
+            <p>(ďalej len „Člen“).</p>
+
+            <p>
+              Prevádzkovateľ a Člen uzatvárajú medzi sebou túto zmluvu o členstve vo fitness centre Maca Gym &amp; SPA,
+              Radlinského 27, 811 03 Bratislava (ďalej len „Zmluva“). Táto zmluva upravuje zmluvné vzťahy medzi
+              Prevádzkovateľom a Členom. Vzťahy neupravené touto Zmluvou a všeobecnými zmluvnými podmienkami
+              (ďalej len „VZP“), ktoré tvoria neoddeliteľnú časť zmluvy, sa riadia príslušnými ustanoveniami
+              zákona č. 40/1964 Zb. Občiansky zákonník (ďalej len ako „občiansky zákonník“) v znení prijatých zmien.
+            </p>
+
+            <h4>Vybraný ročný plán členstva</h4>
+            <p>
+              Názov plánu: <strong>Štart</strong><br />
+              Cena: <strong>390 € / rok</strong>
+            </p>
+
+            <h4>1. Predmet zmluvy</h4>
+            <p>
+              1.1. Na základe Zmluvy sa prevádzkovateľ zaväzuje poskytovať Členovi po dobu trvania Zmluvy služby
+              fitness centra (zahŕňajúce všetky fitnes zariadenia, sprchy, šatne a pod.) a umožniť členovi klubu
+              neobmedzený vstup do fitness centra Maca Gym &amp; SPA v súlade s prevádzkovým poriadkom prevádzkovateľa
+              (príloha č. 2 Zmluvy) a to za nasledovných podmienok: Typ poskytovaného členstva: ročný plán Štart,
+              390 € / rok (ďalej len „Služby“)
+            </p>
+            <p>1.2. Služby možno využívať počas prevádzkových hodín fitness centra Maca Gym &amp; SPA, v zmysle prevádzkového poriadku.</p>
+            <p>
+              1.3. Člen sa zaväzuje platiť prevádzkovateľovi odplatu za poskytovanie dohodnutej Služby, a to vo výške,
+              spôsobom a za podmienok stanovených Zmluvou a Všeobecnými zmluvnými podmienkami (ďalej len „VZP“),
+              ktoré tvoria neoddeliteľnú súčasť tejto Zmluvy.
+            </p>
+
+            <h4>2. Doba poskytovania Služby</h4>
+            <p>2.1. Členstvo začína plynúť od dňa podpisu zmluvy a úhrady členského poplatku členstva (začiatok členstva).</p>
+            <p>
+              2.2. Zmluva sa uzatvára na dobu určitú, pričom sa Člen zaviazal užívať službu podľa vykonanej
+              jednorazovej úhrady, ktorá podľa cenníka zodpovedá dobe členstva.
+            </p>
+            <p>
+              2.3. Zmluvné strany sa dohodli, že člen je oprávnený požiadať o prerušenie zmluvy v súlade s čl. 6 VZP
+              t.j. pozastaviť členstvo, najviac na dobu 2 mesiace bez udania dôvodu a na dobu najviac 24 mesiacov
+              v prípade tehotenstva a vážnych zdravotných dôvodov za podmienky, že oznámenie o pozastavení s presným
+              popisom dôvodu pozastavenia spolu s lekárskym potvrdením bude doručené Spoločnosti do 7 dní odo dňa,
+              od ktorého sa má členstvo pozastaviť.
+            </p>
+
+            <h4>3. Odplata za poskytovanie Služby</h4>
+            <p>
+              3.1. Odplata za poskytované Služby bola dohodou zmluvných strán stanovená vo výške určenej podľa cenníka
+              služieb na webovej stránke www.macagym.sk alebo VZP. (ďalej len ako „Odplata za poskytované Služby“
+              alebo „Členský poplatok“).
+            </p>
+            <p>
+              3.2. Prevádzkovateľ si vyhradzuje právo zmeniť výšku Odplaty počas trvania Zmluvy, a to v súlade a
+              spôsobom upraveným VZP, pričom ak sa poplatok za poskytované služby zvýši o viac ako 20% člen má v tom
+              prípade právo písomne odstúpiť od zmluvy do jedného mesiaca od kedy sa o zmene dozvedel, najneskôr však
+              do troch mesiacov odo dňa účinnosti zmeny paušálneho mesačného poplatku za poskytované služby.
+            </p>
+            <p>
+              3.3. Zmluvné strany sa dohodli, že Člen zaplatí Odplatu za poskytované služby jednorazovo vopred
+              (ďalej len ako „Obdobie“) na základe uzatvorenia tejto Zmluvy.
+            </p>
+            <p>
+              3.4. Zmluvné strany sa dohodli a súhlasia, že poskytovanie Služieb počas trvania Zmluvy sa Člen zaväzuje
+              na príslušné Obdobie vopred zaplatiť Prevádzkovateľovi Odplatou za poskytnuté Služby.
+            </p>
+            <p>3.5. Spôsob zaplatenia Odplaty za poskytovanie Služby podľa tejto Zmluvy a jej splatnosť sú bližšie definované vo VZP platných ku dňu uzavretia Zmluvy.</p>
+            <p>
+              3.6. Výška členského poplatku je uvedená v sadzobníku poplatkov stanovenom Spoločnosťou. Zaplatený
+              poplatok nie je možné vrátiť. Skutočný (faktický) rozsah využívania klubu počas členského obdobia nie sú
+              okolnosťami určujúcimi výšku poplatkov (nie sú dôvodom na zníženie ani na zvýšenie poplatku).
+            </p>
+            <p>3.7. V prípade omeškania s úhradou poplatkov alebo iných peňažných nárokov vzniká Spoločnosti nárok na zmluvnú pokutu vo výške 15 EUR.</p>
+            <p>
+              3.8. Člen nemá právo na náhradu škody spôsobenú vlastným úmyselným alebo nedbanlivostným konaním alebo
+              úmyselným/nedbanlivým konaním tretích osôb, ktoré sa s jeho vedomím zdržiavajú vo fitness centre.
+            </p>
+
+            <h4>4. Záverečné ustanovenia</h4>
+            <p>
+              4.1. Podpisom Zmluvy sa člen zaväzuje že sa oboznámil a bude dodržiavať podmienky dohodnuté v tejto
+              Zmluve a VZP. Člen zároveň podpisom Zmluvy potvrdzuje, že sa oboznámil s podmienkami uvedenými vo VZP.
+            </p>
+            <p>
+              4.2. Člen je povinný rešpektovať pokyny personálu klubu. Člen berie na vedomie, že priestory klubu sú
+              alebo môžu byť monitorované kamerovým bezpečnostným systémom.
+            </p>
+            <p>
+              4.3. Zmluvu o členstve je oprávnená uzavrieť fyzická osoba staršia ako 15 rokov. Pri osobách mladších
+              ako 18 rokov je na uzatvorenie Zmluvy o členstve potrebné zastúpenie zákonným zástupcom.
+            </p>
+            <p>4.4. Člen prehlasuje, že si je vedomý svojho zdravotného stavu, je plne spôsobilý a športuje na vlastné riziko.</p>
+            <p>
+              4.5. Všetky služby pre Členov sú poskytované a využívanie priestorov a zariadení Fitnes centra
+              Maca Gym&amp;SPA sa uskutočňuje výlučne v súlade s touto Zmluvou, VOP a Prevádzkovým poriadkom.
+            </p>
+            <p>
+              4.6. Zrušenie alebo zánik Zmluvy sa nedotýka nároku na náhradu škody vzniknutej porušením
+              Zmluvy/VOP/Prevádzkového poriadku Fitnes centra Maca Gym&amp;SPA, dojednaní o zmluvnej pokute podľa
+              Zmluvy/VZP a ani iných dojednaní, ktoré podľa prejavenej vôle zmluvných strán alebo vzhľadom na svoju
+              povahu majú trvať aj po ukončení Zmluvy.
+            </p>
+            <p>
+              4.7. Ak by bolo alebo sa stalo niektoré ustanovenie Zmluvy alebo VZP neplatné, neúčinné alebo
+              nevykonateľné, ostáva platnosť ostatných ustanovení Zmluvy a VZP nedotknutá, pokiaľ z povahy neplatného,
+              neúčinného alebo nevykonateľného ustanovenia alebo jeho obsahu alebo z okolností, za ktorých bolo dojednané
+              nevyplýva, že toto neplatné, neúčinné alebo nevykonateľné ustanovenie nemožno oddeliť od ostatného obsahu
+              Zmluvy a VZP. Neplatné, neúčinné alebo nevykonateľné ustanovenie bude nahradené novým platným, účinným a
+              vykonateľným ustanovením, ktoré sa svojím obsahom bude čo najviac približovať zámeru a významu nahradeného
+              ustanovenia.
+            </p>
+            <p>
+              4.8. V súvislosti so Zmluvou alebo VZP neexistujú žiadne ústne dohody. Akákoľvek zmena alebo doplnenie
+              Zmluvy alebo VZP alebo ukončenie Zmluvy si vyžadujú písomnú formu.
+            </p>
+            <p>
+              4.9. V prípade, že je v zmysle Zmluvy a VZP požadovaná písomná forma komunikácie, ako aj pre prípad
+              oznamov, upomienok a iných správ sa Doručením rozumie doručenie Členovi (ako adresátovi správy/zásielky)
+              ktorýmkoľvek z nasledovných spôsobov: a/osobne b/ na poštovú adresu v Zmluve c/ na Členom určenú adresu
+              na doručovanie v Zmluve d/ na adresu trvalého pobytu e/ na číslo mobilného telefónu uvedenom v Zmluve
+              f/ na emailovú adresu uvedenú v Zmluve. V prípade nevyzdvihnutia doporučene zasielanej písomnosti alebo
+              odmietnutia jej prijatia sa uplatní fikcia doručenia. Ak adresát svojím konaním alebo opomenutím zmaril
+              doručenie písomnosti a písomnosť pošta vráti ako nedoručenú, účinky doručenia nastávajú v deň, keď bude
+              písomnosť/zásielka vrátená. Účinky doručenia nastávajú aj vtedy, ak adresát odmietne prevziať písomnosť
+              a to dňom jej vrátenia. V prípade elektronickej komunikácie (body e-f tohto článku zmluvy) sa fikcia
+              doručenia uplatní nasledujúci kalendárny deň po dni odoslania správy Prevádzkovateľom Členovi.
+            </p>
+            <p>
+              4.10. Člen berie na vedomie a súhlasí, že Prevádzkovateľ je oprávnený kedykoľvek jednostranne zmeniť
+              alebo doplniť tieto VZP, pričom o zmenách je povinný informovať Klientov bezodkladne formou ich
+              zverejnenia na internetovej stránke Fitnes centra Maca Gym&amp;SPA www.macagymspa.sk ako aj v samotnom
+              zariadení Fitnes centra Maca Gym&amp;SPA s uvedením dátumu, od ktorého nadobudnú platnosť a účinnosť.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="maca-agreement__consents">
+        <label class="maca-agreement__consent">
+          <input type="checkbox" id="maca-agreement-required" data-required="true" />
+          <span>
+            <strong>Vyhlasujem, že som si prečítal/a zmluvu o členstve a súhlasím s jej obsahom.</strong>
+            <br />
+            <small>Tento súhlas je povinný pre pokračovanie v registrácii.</small>
+          </span>
+        </label>
+      </div>
+
+      <p class="maca-agreement__form-error" id="maca-agreement-error" role="alert" aria-live="polite">
+        Pred pokračovaním vyplňte všetky údaje člena v zmluve.
+      </p>
+
+      <div class="maca-agreement__actions">
+        <p class="maca-agreement__hint">Pokračovanie sa aktivuje po potvrdení povinného súhlasu.</p>
+        <a
+          class="maca-agreement__button"
+          id="maca-agreement-continue"
+          href="https://maca-gym.webflow.io/dakujeme"
+          aria-disabled="true"
+        >
+          Pokračovať
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var required = document.getElementById("maca-agreement-required");
+    var continueButton = document.getElementById("maca-agreement-continue");
+    var memberFields = Array.prototype.slice.call(document.querySelectorAll("#maca-agreement-member-fields input[required]"));
+    var errorMessage = document.getElementById("maca-agreement-error");
+    var documentPanel = document.querySelector(".maca-agreement__document");
+
+    if (!required || !continueButton) return;
+
+    function isFieldValid(field) {
+      return field.value.trim() !== "" && field.checkValidity();
+    }
+
+    function setFieldError(field, showError) {
+      field.classList.toggle("is-invalid", showError);
+      field.closest(".maca-agreement__member-field").classList.toggle("is-invalid", showError);
+      field.setAttribute("aria-invalid", showError ? "true" : "false");
+    }
+
+    function validateMemberFields(showErrors) {
+      var firstInvalidField = null;
+
+      memberFields.forEach(function (field) {
+        var fieldIsInvalid = !isFieldValid(field);
+        if (fieldIsInvalid && !firstInvalidField) {
+          firstInvalidField = field;
+        }
+        if (showErrors || !fieldIsInvalid) {
+          setFieldError(field, fieldIsInvalid && showErrors);
+        }
+      });
+
+      if (errorMessage) {
+        errorMessage.classList.toggle("is-visible", Boolean(firstInvalidField && showErrors));
+      }
+
+      if (firstInvalidField && showErrors) {
+        if (documentPanel) {
+          documentPanel.scrollTo({
+            top: Math.max(firstInvalidField.offsetTop - 110, 0),
+            behavior: "smooth"
+          });
+        }
+        firstInvalidField.focus({ preventScroll: true });
+      }
+
+      return !firstInvalidField;
+    }
+
+    function syncConsentState(showErrors) {
+      var memberFieldsAreValid = validateMemberFields(Boolean(showErrors));
+      var canContinue = required.checked && memberFieldsAreValid;
+      continueButton.setAttribute("aria-disabled", canContinue ? "false" : "true");
+      return canContinue;
+    }
+
+    required.addEventListener("change", function () {
+      syncConsentState(required.checked);
+    });
+
+    memberFields.forEach(function (field) {
+      field.addEventListener("input", function () {
+        syncConsentState(false);
+      });
+      field.addEventListener("blur", function () {
+        if (field.classList.contains("is-invalid")) {
+          validateMemberFields(true);
+        }
+      });
+    });
+
+    continueButton.addEventListener("click", function (event) {
+      if (!syncConsentState(true)) {
+        event.preventDefault();
+      }
+    });
+
+    syncConsentState(false);
+  })();
+</script>
