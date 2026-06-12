@@ -1,0 +1,99 @@
+<meta charset="utf-8" />
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+  .maca-thank-you {
+    --maca-thank-you-bg: #1a1a1a;
+    --maca-thank-you-accent: #edd4b6;
+    --maca-thank-you-accent-hover: #a68678;
+    --maca-thank-you-text: #ffffff;
+    --maca-thank-you-text-soft: rgba(255, 255, 255, 0.72);
+    width: 100%;
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+    padding: 5rem 1.5rem;
+    background: var(--maca-thank-you-bg);
+    color: var(--maca-thank-you-text);
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+  }
+
+  .maca-thank-you * {
+    box-sizing: border-box;
+  }
+
+  .maca-thank-you__inner {
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+
+  .maca-thank-you__eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--maca-thank-you-accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .maca-thank-you__title {
+    margin: 0;
+    color: var(--maca-thank-you-accent);
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .maca-thank-you__message {
+    max-width: 620px;
+    margin: 1.1rem auto 2rem;
+    color: var(--maca-thank-you-text-soft);
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .maca-thank-you__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.2rem;
+    padding: 0.9rem 1.25rem;
+    border-radius: 0.5rem;
+    background: var(--maca-thank-you-accent);
+    color: #1a1a1a;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease;
+  }
+
+  .maca-thank-you__button:hover {
+    background: var(--maca-thank-you-accent-hover);
+  }
+
+  @media (max-width: 640px) {
+    .maca-thank-you {
+      min-height: 64vh;
+      padding: 4rem 1rem;
+    }
+
+    .maca-thank-you__button {
+      width: 100%;
+    }
+  }
+</style>
+
+<section class="maca-thank-you" aria-labelledby="maca-thank-you-title">
+  <div class="maca-thank-you__inner">
+    <p class="maca-thank-you__eyebrow">Registrácia odoslaná</p>
+    <h1 class="maca-thank-you__title" id="maca-thank-you-title">Ďakujeme</h1>
+    <p class="maca-thank-you__message">
+      Vaše údaje sme prijali. Čoskoro vás budeme kontaktovať s ďalšími informáciami o členstve v Maca Gym &amp; SPA.
+    </p>
+    <a class="maca-thank-you__button" href="https://maca-gym.webflow.io/">
+      Späť na hlavnú stránku
+    </a>
+  </div>
+</section>
