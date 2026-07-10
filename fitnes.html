@@ -1,4 +1,4 @@
-<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Jun 12 2026 10:14:46 GMT+0000 (Coordinated Universal Time)  -->
+<!DOCTYPE html><!--  This site was created in Webflow. https://webflow.com  --><!--  Last Published: Fri Jul 10 2026 08:33:09 GMT+0000 (Coordinated Universal Time)  -->
 <html data-wf-page="69fe5178894bae382d894a9e" data-wf-site="67fbf89115ec94e322cf2a7d">
 <head>
   <meta charset="utf-8">
@@ -211,7 +211,7 @@
       </div>
       <div class="nav-mobile-menu-button w-nav-button">
         <div class="icon icon-on-inverse"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24">
-            <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10">
+            <g stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none" stroke="currentColor" stroke-miterlimit="10" class="nc-icon-wrapper">
               <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
               <line x1="1" y1="5" x2="23" y2="5"></line>
               <line x1="1" y1="19" x2="23" y2="19"></line>
@@ -536,7 +536,7 @@
                   <li>Základná konzultácia pri prvom tréningu</li>
                   <li>Prístup do šatní a sprch</li>
                 </ul>
-                <a class="maca-membership__button is-secondary" href="registracny-formular-start.html" data-monthly-href="registracny-formular-start.html" data-annual-href="registracny-formular-start-rocne.html">Vybrať plán</a>
+                <a class="maca-membership__button is-secondary" href="https://www.macagym.sk/registracny-formular-zakaznika.html">Vybrať plán</a>
               </article>
               <article class="maca-membership__card is-featured">
                 <span class="maca-membership__badge">Najobľúbenejšie</span>
@@ -557,7 +557,7 @@
                   <li>Zľava 10 % na masáže</li>
                   <li>Prioritná rezervácia tréningového priestoru</li>
                 </ul>
-                <a class="maca-membership__button" href="registracny-formular-aktiv.html" data-monthly-href="registracny-formular-aktiv.html" data-annual-href="registracny-formular-aktiv-rocne.html">Vybrať plán</a>
+                <a class="maca-membership__button" href="https://www.macagym.sk/registracny-formular-zakaznika.html">Vybrať plán</a>
               </article>
               <article class="maca-membership__card">
                 <h3 class="maca-membership__plan-name">Premium</h3>
@@ -577,7 +577,7 @@
                   <li>Zľava 15 % na masáže a regeneráciu</li>
                   <li>Osobné odporúčania k tréningu a regenerácii</li>
                 </ul>
-                <a class="maca-membership__button is-secondary" href="registracny-formular-premium.html" data-monthly-href="registracny-formular-premium.html" data-annual-href="registracny-formular-premium-rocne.html">Vybrať plán</a>
+                <a class="maca-membership__button is-secondary" href="https://www.macagym.sk/registracny-formular-zakaznika.html">Vybrať plán</a>
               </article>
             </div>
           </div>
@@ -731,35 +731,6 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
     </section>
   </footer>
-  <script>
-    (function () {
-      var monthlyToggle = document.getElementById("maca-membership-monthly");
-      var annualToggle = document.getElementById("maca-membership-annual");
-      var planButtons = Array.prototype.slice.call(document.querySelectorAll(".maca-membership__button[data-monthly-href][data-annual-href]"));
-
-      function syncPlanLinks() {
-        var annualSelected = annualToggle && annualToggle.checked;
-        planButtons.forEach(function (button) {
-          button.setAttribute("href", annualSelected ? button.getAttribute("data-annual-href") : button.getAttribute("data-monthly-href"));
-        });
-      }
-
-      function selectBilling(toggle) {
-        if (!toggle) return;
-        toggle.checked = true;
-        syncPlanLinks();
-      }
-
-      var monthlyLabel = document.querySelector("label[for=\"maca-membership-monthly\"]");
-      var annualLabel = document.querySelector("label[for=\"maca-membership-annual\"]");
-
-      if (monthlyToggle) monthlyToggle.addEventListener("change", syncPlanLinks);
-      if (annualToggle) annualToggle.addEventListener("change", syncPlanLinks);
-      if (monthlyLabel) monthlyLabel.addEventListener("click", function () { selectBilling(monthlyToggle); });
-      if (annualLabel) annualLabel.addEventListener("click", function () { selectBilling(annualToggle); });
-      syncPlanLinks();
-    })();
-  </script>
   <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67fbf89115ec94e322cf2a7d" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
   <script src="js/webflow.js" type="text/javascript"></script>
 </body>
