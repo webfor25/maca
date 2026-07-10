@@ -1,90 +1,216 @@
 <meta charset="utf-8" />
 
-<style>
-  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
 
+<style>
+  /* ── Reset & Tokens ─────────────────────────────────────── */
+  :root {
+    --gold: #a68768;
+    --cream: #edd4b6;
+    --ink: #0f0d0a;
+    --base: #151210;
+    --base-2: #1a1613;
+    --surface: #1f1a15;
+    --line: rgba(166,135,104,.32);
+    --txt: #eddcc2;
+    --txt-dim: rgba(237,220,194,.7);
+    --txt-faint: rgba(237,220,194,.45);
+    --serif: "Fraunces", serif;
+    --sans: "Hanken Grotesk", system-ui, sans-serif;
+    --pad: clamp(1.25rem, 5vw, 4rem);
+    --maxw: 1180px;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--base);
+    color: var(--txt);
+    font-family: var(--sans);
+    font-weight: 300;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { display: block; }
+  a { color: inherit; text-decoration: none; }
+  .wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+
+  /* ── Buttons ─────────────────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .6em;
+    font-family: var(--sans); font-weight: 600; font-size: .8rem;
+    letter-spacing: .18em; text-transform: uppercase;
+    padding: 1.05em 2.2em; border-radius: 999px;
+    transition: background .3s, color .3s, border-color .3s;
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-gold { background: var(--gold); color: #15110c; }
+  .btn-gold:hover { background: var(--cream); border-color: var(--cream); }
+  .btn-line { border-color: var(--line); color: var(--txt); }
+  .btn-line:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── Header / Nav ────────────────────────────────────────── */
+  header {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 50;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    transition: background .4s, border-color .4s, backdrop-filter .4s;
+  }
+  header.scrolled {
+    background: rgba(15,13,10,.9);
+    backdrop-filter: blur(12px);
+    border-bottom-color: rgba(166,135,104,.2);
+  }
+  .nav {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: 0 var(--pad);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .brand { display: flex; align-items: center; gap: .7rem; }
+  .nav-links { display: none; align-items: center; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    position: relative;
+    font-size: .78rem; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--txt-dim); transition: color .3s;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute;
+    left: 0; right: 100%; bottom: -6px;
+    height: 1px; background: var(--gold);
+    transition: right .3s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { right: 0; }
+  .nav-cta { display: none; }
+  .menu-btn {
+    background: none; border: 1px solid var(--line); border-radius: 999px;
+    color: var(--cream); width: 46px; height: 46px;
+    display: grid; place-items: center; cursor: pointer;
+  }
+  .menu-btn svg { width: 20px; height: 20px; }
+  @media (min-width: 880px) {
+    .nav-links, .nav-cta { display: inline-flex; }
+    .menu-btn { display: none; }
+    .nav-cta { padding: .85em 1.8em; }
+  }
+  .drawer {
+    position: fixed; inset: 72px 0 auto 0; z-index: 49;
+    background: rgba(15,13,10,.97); border-bottom: 1px solid var(--line);
+    display: none; flex-direction: column; padding: 1.5rem var(--pad) 2rem; gap: 1.4rem;
+  }
+  .drawer.open { display: flex; }
+  .drawer a { font-size: .85rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--cream); }
+  .drawer .btn { align-self: flex-start; }
+
+  /* ── Thank You Section ───────────────────────────────────── */
   .maca-thank-you {
-    --maca-thank-you-bg: #1a1a1a;
-    --maca-thank-you-accent: #edd4b6;
-    --maca-thank-you-accent-hover: #a68678;
-    --maca-thank-you-text: #ffffff;
-    --maca-thank-you-text-soft: rgba(255, 255, 255, 0.72);
     width: 100%;
-    min-height: 70vh;
+    min-height: calc(100vh - 72px);
+    margin-top: 72px;
     display: grid;
     place-items: center;
     padding: 5rem 1.5rem;
-    background: var(--maca-thank-you-bg);
-    color: var(--maca-thank-you-text);
-    font-family: "Montserrat", sans-serif;
+    background: var(--base);
+    color: var(--txt);
+    font-family: var(--sans);
     text-align: center;
   }
-
-  .maca-thank-you * {
-    box-sizing: border-box;
-  }
-
-  .maca-thank-you__inner {
-    width: min(760px, 100%);
-    margin: 0 auto;
-  }
-
+  .maca-thank-you__inner { width: min(760px, 100%); margin: 0 auto; }
   .maca-thank-you__eyebrow {
     margin: 0 0 0.8rem;
-    color: var(--maca-thank-you-accent);
-    font-size: 0.82rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    color: var(--cream);
+    font-size: 0.82rem; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase;
   }
-
   .maca-thank-you__title {
     margin: 0;
-    color: var(--maca-thank-you-accent);
+    color: var(--cream);
+    font-family: var(--serif);
     font-size: clamp(2.4rem, 5vw, 4rem);
-    font-weight: 600;
+    font-weight: 300;
     line-height: 1.05;
   }
-
   .maca-thank-you__message {
     max-width: 620px;
     margin: 1.1rem auto 2rem;
-    color: var(--maca-thank-you-text-soft);
+    color: var(--txt-dim);
     font-size: 1.05rem;
     line-height: 1.7;
   }
-
   .maca-thank-you__button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 3.2rem;
-    padding: 0.9rem 1.25rem;
-    border-radius: 0.5rem;
-    background: var(--maca-thank-you-accent);
-    color: #1a1a1a;
-    font-size: 0.95rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: background 180ms ease;
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 3.2rem; padding: 1.05em 2.2em; border-radius: 999px;
+    background: var(--gold); color: #15110c;
+    font-size: .8rem; font-weight: 600;
+    letter-spacing: .18em; text-transform: uppercase;
+    text-decoration: none; transition: background .3s;
   }
-
-  .maca-thank-you__button:hover {
-    background: var(--maca-thank-you-accent-hover);
-  }
-
+  .maca-thank-you__button:hover { background: var(--cream); }
   @media (max-width: 640px) {
-    .maca-thank-you {
-      min-height: 64vh;
-      padding: 4rem 1rem;
-    }
+    .maca-thank-you { padding: 4rem 1rem; }
+    .maca-thank-you__button { width: 100%; }
+  }
 
-    .maca-thank-you__button {
-      width: 100%;
-    }
+  /* ── Footer ──────────────────────────────────────────────── */
+  footer { background: var(--ink); border-top: 1px solid rgba(166,135,104,.2); padding: 3.5rem 0 2.5rem; }
+  .foot { display: grid; gap: 2.2rem; }
+  @media (min-width: 780px) { .foot { grid-template-columns: 1.2fr 1fr 1fr; gap: 3rem; } }
+  .foot .tagline { font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--cream); max-width: 16em; margin-top: 1rem; }
+  .foot h4 { font-size: .7rem; font-weight: 600; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+  .foot ul { list-style: none; display: grid; gap: .7rem; }
+  .foot ul a { color: var(--txt-dim); font-size: .95rem; transition: color .3s; }
+  .foot ul a:hover { color: var(--gold); }
+  .foot-base {
+    max-width: var(--maxw); margin: 3rem auto 0;
+    padding: 1.8rem var(--pad) 0;
+    border-top: 1px solid rgba(166,135,104,.15);
+    display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between;
+    color: var(--txt-faint); font-size: .82rem; letter-spacing: .04em;
   }
 </style>
 
+<!-- ── Header ─────────────────────────────────────────────── -->
+<header id="site-header">
+  <nav class="nav" aria-label="Hlavná navigácia">
+    <a class="brand" href="https://www.macagym.sk/" aria-label="MACA — domov">
+      <img src="images/branding.svg" alt="MACA" style="height:52px;width:auto;display:block;border-radius:0;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="https://www.macagym.sk/#masaze">Masáže</a></li>
+      <li><a href="https://www.macagym.sk/#posilnovna">Posilňovňa</a></li>
+      <li><a href="https://www.macagym.sk/#clenstvo">Členstvo</a></li>
+      <li><a href="https://www.macagym.sk/#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="btn btn-gold nav-cta" href="https://app.macagym.sk/booking">Rezervácia</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Otvoriť menu">
+      <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" fill="none">
+        <path d="M3 7h18M3 12h18M3 17h18"></path>
+      </svg>
+    </button>
+  </nav>
+  <div class="drawer" id="drawer">
+    <a href="https://www.macagym.sk/#masaze">Masáže</a>
+    <a href="https://www.macagym.sk/#posilnovna">Posilňovňa</a>
+    <a href="https://www.macagym.sk/#clenstvo">Členstvo</a>
+    <a href="https://www.macagym.sk/#kontakt">Kontakt</a>
+    <a class="btn btn-gold" href="https://app.macagym.sk/booking">Rezervácia</a>
+  </div>
+</header>
+
+<!-- ── Thank You Content ──────────────────────────────────── -->
 <section class="maca-thank-you" aria-labelledby="maca-thank-you-title">
   <div class="maca-thank-you__inner">
     <p class="maca-thank-you__eyebrow">Registrácia odoslaná</p>
@@ -92,8 +218,56 @@
     <p class="maca-thank-you__message">
       Vaše údaje sme prijali. Čoskoro vás budeme kontaktovať s ďalšími informáciami o členstve v Maca Gym &amp; SPA.
     </p>
-    <a class="maca-thank-you__button" href="https://maca-gym.webflow.io/">
+    <a class="maca-thank-you__button" href="https://www.macagym.sk/">
       Späť na hlavnú stránku
     </a>
   </div>
 </section>
+
+<!-- ── Footer ─────────────────────────────────────────────── -->
+<footer>
+  <div class="wrap foot">
+    <div>
+      <a class="brand" href="https://www.macagym.sk/" aria-label="MACA — domov">
+        <img src="images/branding.svg" alt="MACA" style="height:70px;width:auto;display:block;border-radius:0;">
+      </a>
+      <p class="tagline">Posilňovňa a masáže v centre Bratislavy.</p>
+    </div>
+    <div>
+      <h4>Navigácia</h4>
+      <ul>
+        <li><a href="https://www.macagym.sk/#posilnovna">Posilňovňa</a></li>
+        <li><a href="https://www.macagym.sk/masaz.html">Masáže</a></li>
+        <li><a href="https://www.macagym.sk/#clenstvo">Členstvo</a></li>
+        <li><a href="https://www.macagym.sk/#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Sociálne siete</h4>
+      <ul>
+        <li><a href="#" rel="noopener">Facebook</a></li>
+        <li><a href="#" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-base">
+    <span>© <span id="year"></span> MACA · Hotel Saffron, Bratislava</span>
+    <span>Posilňovňa · Masáže · Sauna</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const hdr = document.getElementById('site-header');
+  const onScroll = () => hdr.classList.toggle('scrolled', window.scrollY > 10);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  const menuBtn = document.getElementById('menuBtn');
+  const drawer  = document.getElementById('drawer');
+  menuBtn.addEventListener('click', () => {
+    const open = drawer.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', open);
+  });
+</script>
