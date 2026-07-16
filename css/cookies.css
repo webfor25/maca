@@ -1,0 +1,246 @@
+/* Cookie Consent Modal styles matching MACA branding */
+
+.maca-cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 13, 10, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  padding: 1.25rem;
+}
+
+.maca-cookie-overlay.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.maca-cookie-modal {
+  background-color: #1a1613; /* MACA --base-2 */
+  border: 1px solid rgba(166, 135, 104, 0.2); /* MACA --line */
+  border-radius: 16px;
+  width: 100%;
+  max-width: 580px;
+  padding: 2.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  color: #eddcc2; /* MACA --txt */
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+}
+
+.maca-cookie-overlay.is-visible .maca-cookie-modal {
+  transform: translateY(0);
+}
+
+.maca-cookie-header {
+  margin-bottom: 1.5rem;
+}
+
+.maca-cookie-title {
+  font-family: "Fraunces", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: #eddcc2;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.2;
+}
+
+.maca-cookie-desc {
+  font-size: 0.95rem;
+  color: rgba(237, 220, 194, 0.7); /* MACA --txt-dim */
+  line-height: 1.6;
+  margin: 0 0 1rem 0;
+}
+
+.maca-cookie-link {
+  color: #a68768; /* MACA --gold */
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s ease;
+}
+
+.maca-cookie-link:hover {
+  color: #edd4b6; /* MACA --cream */
+  text-decoration: underline;
+}
+
+.maca-cookie-options {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.maca-cookie-row {
+  background-color: #211c18; /* MACA --surface */
+  border: 1px solid rgba(166, 135, 104, 0.1);
+  border-radius: 10px;
+  padding: 1.15rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.maca-cookie-row:hover {
+  border-color: rgba(166, 135, 104, 0.25);
+}
+
+.maca-cookie-info {
+  flex: 1;
+}
+
+.maca-cookie-option-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.35rem;
+}
+
+.maca-cookie-option-title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin: 0;
+  color: #eddcc2;
+}
+
+.maca-cookie-badge {
+  font-size: 0.75rem;
+  background-color: rgba(166, 135, 104, 0.15);
+  color: #a68768;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 400;
+}
+
+.maca-cookie-option-desc {
+  font-size: 0.85rem;
+  color: rgba(237, 220, 194, 0.55); /* MACA --txt-faint */
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Custom Toggle Switch */
+.maca-cookie-toggle {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.maca-cookie-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.maca-cookie-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: rgba(237, 220, 194, 0.15);
+  transition: background-color 0.3s, border-color 0.3s;
+  border-radius: 24px;
+  border: 1px solid rgba(166, 135, 104, 0.2);
+}
+
+.maca-cookie-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #eddcc2; /* MACA --txt */
+  transition: transform 0.3s;
+  border-radius: 50%;
+}
+
+.maca-cookie-toggle input:checked + .maca-cookie-slider {
+  background-color: #a68768; /* MACA --gold */
+  border-color: #a68768;
+}
+
+.maca-cookie-toggle input:checked + .maca-cookie-slider:before {
+  transform: translateX(20px);
+  background-color: #0f0d0a; /* MACA --ink */
+}
+
+.maca-cookie-toggle input:disabled + .maca-cookie-slider {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Buttons */
+.maca-cookie-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: 0.75rem;
+}
+
+.maca-cookie-btn {
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.maca-cookie-btn.btn-outline {
+  background-color: transparent;
+  border: 1px solid rgba(166, 135, 104, 0.35);
+  color: #eddcc2;
+}
+
+.maca-cookie-btn.btn-outline:hover {
+  background-color: rgba(166, 135, 104, 0.1);
+  border-color: rgba(166, 135, 104, 0.6);
+}
+
+.maca-cookie-btn.btn-gold {
+  background-color: #a68768; /* MACA --gold */
+  border: 1px solid #a68768;
+  color: #0f0d0a; /* MACA --ink */
+}
+
+.maca-cookie-btn.btn-gold:hover {
+  background-color: #edd4b6; /* MACA --cream */
+  border-color: #edd4b6;
+  box-shadow: 0 0 12px rgba(166, 135, 104, 0.2);
+}
+
+/* Responsive adjustment */
+@media (max-width: 520px) {
+  .maca-cookie-modal {
+    padding: 1.5rem;
+  }
+  .maca-cookie-actions {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .maca-cookie-btn {
+    padding: 0.75rem 1rem;
+  }
+}
