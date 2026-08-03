@@ -1140,7 +1140,30 @@
     continueButton.addEventListener("click", function (event) {
       if (!syncConsentState(true)) {
         event.preventDefault();
+        return;
       }
+
+      // ── Pabbly Connect webhook ──────────────────────────────────
+      event.preventDefault();
+      var dest = continueButton.getAttribute("href");
+      var payload = {
+        name:                    (document.getElementById("maca-member-name") || {}).value || "",
+        birth_date:              (document.getElementById("maca-member-birth-date") || {}).value || "",
+        email:                   (document.getElementById("maca-member-email") || {}).value || "",
+        phone:                   (document.getElementById("maca-member-phone") || {}).value || "",
+        address:                 (document.getElementById("maca-member-address") || {}).value || "",
+        correspondence_address:  (document.getElementById("maca-member-correspondence-address") || {}).value || "",
+        membership_plan:         "Aktív — 59 \u20ac/mes.",
+        form_page:               window.location.href,
+        submitted_at:            new Date().toISOString()
+      };
+      fetch("https://connect.pabbly.com/webhook-listener/webhook/IjU3NjUwNTZhMDYzMjA0M2Q1MjY4NTUzNCI_3D_pc/IjU3NjcwNTY5MDYzZjA0MzY1MjZhNTUzNzUxM2Ii_pc", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+      // Navigate immediately — don't wait for webhook response
+      window.location.href = dest;
     });
 
     syncConsentState(false);
