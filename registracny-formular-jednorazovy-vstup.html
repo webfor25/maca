@@ -1,0 +1,1135 @@
+<meta charset="utf-8" />
+<title>Jednorazový vstup — Maca Gym &amp; SPA</title>
+<meta name="description" content="Registračný formulár pre jednorazový vstup do fitness centra Maca Gym &amp; SPA. Cena: 15 €." />
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+<link href="css/normalize.css" rel="stylesheet" type="text/css">
+<link href="css/webflow.css" rel="stylesheet" type="text/css">
+<link href="css/maca-gym.webflow.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+<script
+  type="text/javascript">WebFont.load({ google: { families: ["Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic", "PT Sans:400,400italic,700,700italic", "Instrument Sans:300,400,500,600,700"] } });</script>
+<script
+  type="text/javascript">!function (o, c) { var n = c.documentElement, t = " w-mod-"; n.className += t + "js", ("ontouchstart" in o || o.DocumentTouch && c instanceof DocumentTouch) && (n.className += t + "touch") }(window, document);</script>
+<link href="images/favicon.png" rel="shortcut icon" type="image/x-icon">
+<link href="images/webclip.png" rel="apple-touch-icon">
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+  html,
+  body {
+    margin: 0;
+    min-height: 100%;
+    background: #1a1a1a;
+  }
+
+  .nav .nav-container {
+    width: min(1080px, calc(100% - 3rem));
+    max-width: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .maca-agreement {
+    --maca-agreement-bg: #1a1a1a;
+    --maca-agreement-surface: rgba(255, 255, 255, 0.035);
+    --maca-agreement-surface-strong: rgba(255, 255, 255, 0.055);
+    --maca-agreement-border: rgba(255, 255, 255, 0.14);
+    --maca-agreement-border-strong: rgba(237, 212, 182, 0.38);
+    --maca-agreement-accent: #edd4b6;
+    --maca-agreement-accent-hover: #a68678;
+    --maca-agreement-text: #ffffff;
+    --maca-agreement-text-soft: rgba(255, 255, 255, 0.72);
+    --maca-agreement-text-muted: rgba(255, 255, 255, 0.52);
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10rem 1.5rem 5rem;
+    background: var(--maca-agreement-bg);
+    color: var(--maca-agreement-text);
+    font-family: "Montserrat", sans-serif;
+  }
+
+  .maca-agreement * {
+    box-sizing: border-box;
+  }
+
+  .maca-agreement__inner {
+    width: min(1080px, 100%);
+    margin: 0 auto;
+  }
+
+  .maca-agreement__eyebrow {
+    margin: 0 0 0.8rem;
+    color: var(--maca-agreement-accent);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .maca-agreement__title {
+    margin: 0;
+    color: var(--maca-agreement-accent);
+    font-size: 3.4rem;
+    font-weight: 600;
+    line-height: 1.05;
+  }
+
+  .maca-agreement__intro {
+    max-width: 760px;
+    margin: 1rem 0 2rem;
+    color: var(--maca-agreement-text-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .maca-agreement__plan {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+    margin: 0 0 1.5rem;
+    padding: 1.2rem 1.25rem;
+    border: 1px solid var(--maca-agreement-border-strong);
+    border-radius: 0.75rem;
+    background: var(--maca-agreement-surface-strong);
+  }
+
+  .maca-agreement__plan-label {
+    margin: 0 0 0.35rem;
+    color: var(--maca-agreement-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .maca-agreement__plan-name {
+    margin: 0;
+    color: var(--maca-agreement-text);
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .maca-agreement__plan-description {
+    margin: 0.55rem 0 0;
+    color: var(--maca-agreement-text-soft);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+
+  .maca-agreement__plan-price {
+    justify-self: end;
+    color: var(--maca-agreement-accent);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .maca-agreement__layout {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .maca-agreement__viewer {
+    overflow: hidden;
+    border: 1px solid var(--maca-agreement-border);
+    border-radius: 0.9rem;
+    background: var(--maca-agreement-surface);
+  }
+
+  .maca-agreement__toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.9rem;
+    padding: 0.95rem 1.1rem;
+    border-bottom: 1px solid var(--maca-agreement-border);
+    background: var(--maca-agreement-surface-strong);
+  }
+
+  .maca-agreement__toolbar-left,
+  .maca-agreement__toolbar-right {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .maca-agreement__pill {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.3rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--maca-agreement-border);
+    border-radius: 999px;
+    color: var(--maca-agreement-text-soft);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .maca-agreement__pill.is-accent {
+    border-color: var(--maca-agreement-border-strong);
+    color: var(--maca-agreement-accent);
+  }
+
+  .maca-agreement__document-shell {
+    padding: 1.25rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.015));
+  }
+
+  .maca-agreement__document {
+    max-height: 640px;
+    overflow: auto;
+    padding: 3rem;
+    border-radius: 0.6rem;
+    background: #f7f2ea;
+    color: #1f1a16;
+    box-shadow: inset 0 0 0 1px rgba(50, 38, 24, 0.08);
+  }
+
+  .maca-agreement__document h3 {
+    margin: 0 0 0.35rem;
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .maca-agreement__document h4 {
+    margin: 1.5rem 0 0.7rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .maca-agreement__document p,
+  .maca-agreement__document li {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .maca-agreement__document p {
+    margin: 0 0 1rem;
+  }
+
+  .maca-agreement__document ul {
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+  }
+
+  .maca-agreement__member-fields {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0 0 1rem;
+    padding-left: 1.1rem;
+  }
+
+  .maca-agreement__member-field {
+    display: grid;
+    grid-template-columns: minmax(13rem, 0.42fr) minmax(15rem, 1fr);
+    gap: 0.75rem;
+    align-items: center;
+    font-size: 0.96rem;
+    line-height: 1.5;
+  }
+
+  .maca-agreement__member-field::before {
+    content: "•";
+    position: absolute;
+    margin-left: -1.1rem;
+  }
+
+  .maca-agreement__member-field label {
+    font-weight: 600;
+  }
+
+  .maca-agreement__optional {
+    color: rgba(31, 26, 22, 0.62);
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  .maca-agreement__same-address {
+    grid-column: 2;
+    display: flex;
+    gap: 0.55rem;
+    align-items: flex-start;
+    color: rgba(31, 26, 22, 0.78);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+
+  .maca-agreement__same-address input {
+    width: 1.05rem;
+    height: 1.05rem;
+    margin: 0.18rem 0 0;
+    accent-color: #8a6d51;
+    flex: 0 0 auto;
+  }
+
+  .maca-agreement__member-field input:not([type="checkbox"]) {
+    width: 100%;
+    min-height: 2.55rem;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid rgba(31, 26, 22, 0.28);
+    border-radius: 0.35rem;
+    background: #fffaf2;
+    color: #1f1a16;
+    font: inherit;
+  }
+
+  .maca-agreement__member-field input:not([type="checkbox"]):focus {
+    border-color: #8a6d51;
+    outline: 3px solid rgba(138, 109, 81, 0.2);
+  }
+
+  .maca-agreement__member-field input:not([type="checkbox"]).is-invalid {
+    border-color: #c0392b;
+    background: #fff3f1;
+    outline: 3px solid rgba(192, 57, 43, 0.14);
+  }
+
+  .maca-agreement__field-error {
+    display: none;
+    grid-column: 2;
+    margin-top: -0.35rem;
+    color: #a92418;
+    font-size: 0.82rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .maca-agreement__member-field.is-invalid .maca-agreement__field-error {
+    display: block;
+  }
+
+  .maca-agreement__form-error {
+    display: none;
+    margin: 0 1.25rem;
+    padding: 0.9rem 1rem;
+    border: 1px solid rgba(192, 57, 43, 0.45);
+    border-radius: 0.5rem;
+    background: rgba(192, 57, 43, 0.14);
+    color: #ffd8d3;
+    font-size: 0.94rem;
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .maca-agreement__form-error.is-visible {
+    display: block;
+  }
+
+  .maca-agreement__consents {
+    display: grid;
+    gap: 0.85rem;
+    padding: 1.45rem 1.25rem 0;
+  }
+
+  .maca-agreement__consent {
+    display: grid;
+    grid-template-columns: 1.4rem 1fr;
+    gap: 0.9rem;
+    align-items: start;
+    color: var(--maca-agreement-text-soft);
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .maca-agreement__consent input {
+    width: 1.2rem;
+    height: 1.2rem;
+    margin: 0.12rem 0 0;
+    accent-color: var(--maca-agreement-accent);
+  }
+
+  .maca-agreement__consent strong {
+    color: var(--maca-agreement-text);
+  }
+
+  .maca-agreement__consent small {
+    color: var(--maca-agreement-text-muted);
+    font-size: 0.92em;
+  }
+
+  .maca-agreement__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem 0;
+  }
+
+  .maca-agreement__hint {
+    color: var(--maca-agreement-text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .maca-agreement__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 3.2rem;
+    padding: 0.9rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.5rem;
+    background: var(--maca-agreement-accent);
+    color: #1a1a1a;
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 180ms ease, opacity 180ms ease;
+  }
+
+  .maca-agreement__button:hover {
+    background: var(--maca-agreement-accent-hover);
+  }
+
+  .maca-agreement__button[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+
+  @media (max-width: 640px) {
+    .nav .nav-container {
+      width: calc(100% - 2rem);
+    }
+
+    .maca-agreement {
+      padding: 8.5rem 1rem 4rem;
+    }
+
+    .maca-agreement__toolbar {
+      align-items: stretch;
+    }
+
+    .maca-agreement__toolbar-left,
+    .maca-agreement__toolbar-right,
+    .maca-agreement__actions {
+      width: 100%;
+    }
+
+    .maca-agreement__actions {
+      align-items: stretch;
+    }
+
+    .maca-agreement__button {
+      width: 100%;
+    }
+
+    .maca-agreement__plan {
+      grid-template-columns: 1fr;
+    }
+
+    .maca-agreement__plan-price {
+      justify-self: start;
+    }
+
+    .maca-agreement__member-field {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+    }
+
+    .maca-agreement__field-error {
+      grid-column: 1;
+    }
+
+
+    .maca-agreement__same-address {
+      grid-column: 1;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .maca-agreement__title {
+      font-size: 2.9rem;
+      line-height: 1.06;
+    }
+
+    .maca-agreement__intro,
+    .maca-agreement__plan-description,
+    .maca-agreement__document p,
+    .maca-agreement__document li,
+    .maca-agreement__member-field,
+    .maca-agreement__consent {
+      font-size: 1.05rem;
+    }
+
+    .maca-agreement__document h3 {
+      font-size: 2rem;
+      line-height: 1.12;
+    }
+
+    .maca-agreement__document h4 {
+      font-size: 1.16rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+
+    .maca-agreement__eyebrow,
+    .maca-agreement__plan-label {
+      font-size: 0.9rem;
+      line-height: 1.35;
+    }
+
+    .maca-agreement__title {
+      font-size: 2.55rem;
+      line-height: 1.08;
+    }
+
+    .maca-agreement__intro {
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .maca-agreement__plan {
+      padding: 1.15rem;
+    }
+
+    .maca-agreement__plan-name {
+      font-size: 2rem;
+    }
+
+    .maca-agreement__plan-price {
+      font-size: 1.85rem;
+    }
+
+    .maca-agreement__plan-description,
+    .maca-agreement__document p,
+    .maca-agreement__document li,
+    .maca-agreement__member-field,
+    .maca-agreement__consent {
+      font-size: 1.06rem;
+      line-height: 1.62;
+    }
+
+    .maca-agreement__document-shell {
+      padding: 0.75rem;
+    }
+
+    .maca-agreement__document {
+      max-height: 68vh;
+      padding: 1.2rem;
+    }
+
+    .maca-agreement__document h3 {
+      font-size: 1.85rem;
+      line-height: 1.14;
+    }
+
+    .maca-agreement__document h4 {
+      font-size: 1.18rem;
+      line-height: 1.35;
+    }
+
+    .maca-agreement__pill,
+    .maca-agreement__hint,
+    .maca-agreement__button {
+      font-size: 1rem;
+    }
+
+    .maca-agreement__member-field input:not([type="checkbox"]) {
+      min-height: 3rem;
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="nav">
+  <div data-duration="400" data-animation="default" data-easing2="ease" data-easing="ease" data-collapse="medium"
+    role="banner" data-no-scroll="1" class="nav-container w-nav">
+    <a href="index.html" class="nav-left w-inline-block"><img src="images/golden-maca.svg" loading="lazy" alt=""
+        class="image-2"></a>
+    <div class="nav-right">
+      <nav role="navigation" class="nav-menu w-nav-menu">
+        <ul role="list" class="nav-menu-list w-list-unstyled">
+          <li class="nav-menu-list-item">
+            <a href="index.html" aria-current="page" class="nav-link w-inline-block w--current">Domov</a>
+          </li>
+          <li class="nav-menu-list-item">
+            <a href="https://app.macagym.sk/booking" class="nav-link w-inline-block">Masáž</a>
+          </li>
+          <li class="nav-menu-list-item">
+            <a href="fitnes.html" class="nav-link w-inline-block">Fitnes</a>
+          </li>
+          <li class="nav-menu-list-item">
+            <a href="index.html" class="nav-link gallery hide w-inline-block">Gáleria</a>
+          </li>
+          <li class="nav-menu-list-item">
+            <div data-delay="0" data-hover="false" data-w-id="a962ea0a-994b-5e07-8a37-09220740e992"
+              class="nav-menu-dropdown w-dropdown">
+              <div class="nav-link massage w-dropdown-toggle">
+                <div class="text-block-23">Masáž</div>
+                <div class="nav-caret w-icon-dropdown-toggle"></div>
+              </div>
+              <nav class="nav-mega-menu-dropdown-list w-dropdown-list">
+                <div class="mega-nav-dropdown-list-wrapper">
+                  <ul role="list" class="grid-layout desktop-3-column tablet-1-column grid-gap-sm w-list-unstyled">
+                    <li id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e6d-ad6d2e56"
+                      class="list-item w-node-a962ea0a-994b-5e07-8a37-09220740e99a-0740e985">
+                      <div class="w-layout-grid grid-layout desktop-3-column tablet-1-column grid-gap-sm">
+                        <div class="div-block-nav">
+                          <div class="eyebrow">Masáž</div>
+                          <ul role="list" class="nav-mega-menu-list w-list-unstyled">
+                            <li class="utility-margin-bottom-0">
+                              <a href="https://link.web25.io/booking/maca-gym-wpmtvc2uii/sv/masaz"
+                                class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e78-ad6d2e56"
+                                  class="w-node-a962ea0a-994b-5e07-8a37-09220740e9a5-0740e985">
+                                  <div class="text-block-5">Klasická masáž</div>
+                                  <div class="paragraph-sm utility-text-secondary">Uvoľnenie, prekrvenie, regenerácia,
+                                    relax.Preskúmajte našu modernú posilňovňu.</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="https://link.web25.io/booking/maca-gym-wpmtvc2uii/sv/makke-techniky"
+                                class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e83-ad6d2e56"
+                                  class="w-node-a962ea0a-994b-5e07-8a37-09220740e9b0-0740e985">
+                                  <div class="text-block-6">Mäkké techniky</div>
+                                  <div class="paragraph-sm utility-text-secondary">Uvoľnenie, flexibilita, fascie,
+                                    pohyb.</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="fitnes.html" class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56"
+                                  class="w-node-a962ea0a-994b-5e07-8a37-09220740e9bb-0740e985">
+                                  <div>Reflexná masáž chodidiel</div>
+                                  <div class="paragraph-sm utility-text-secondary">Vyberte si ideálny plán.</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="https://link.web25.io/booking/maca-gym-wpmtvc2uii/sv/bankovanie"
+                                class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56"
+                                  class="w-node-cc38378c-c994-da3b-6ed8-ff534893a329-0740e985">
+                                  <div>Bankovanie</div>
+                                  <div class="paragraph-sm utility-text-secondary">Vákuum, prekrvenie, uvoľnenie,
+                                    regenerácia.</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="https://link.web25.io/booking/maca-gym-wpmtvc2uii/sv/manualna-lymfodrenaz"
+                                class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e8e-ad6d2e56"
+                                  class="w-node-ce00ba61-af76-eef1-a2ec-5a9990b21e33-0740e985">
+                                  <div>Manuálna lymfodrenáž</div>
+                                  <div class="paragraph-sm utility-text-secondary">Odtok, detoxikácia, opuchy, ľahkosť.
+                                  </div>
+                                </div>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ede-ad6d2e56"
+                      class="flex-horizontal w-node-a962ea0a-994b-5e07-8a37-09220740ea0f-0740e985">
+                      <a href="mailto:kontact-maca@gmail.com"
+                        class="card-link inverse-card-link flex-child-expand c-ard-nav w-inline-block">
+                        <div class="card-body card-nav">
+                          <div class="h3-heading">Nájdite pokoj a silu</div>
+                          <p class="paragraph-sm utility-text-inverse-secondary">Spojte fitnes s relaxáciou.</p>
+                          <div class="utility-margin-top-auto">
+                            <div class="button-group">
+                              <div class="text-button secondary-text-button text-button-on-inverse">
+                                <div class="text-block-9">Pripojte sa teraz</div>
+                                <div class="button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                    height="100%" viewbox="0 0 16 16" fill="none">
+                                    <path d="M2 8H14.5M14.5 8L8.5 2M14.5 8L8.5 14" stroke="currentColor"
+                                      stroke-width="2" stroke-linejoin="round"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div data-delay="0" data-hover="false" data-w-id="f1e078f5-694d-4383-7b5a-5b7c0e01dce0"
+              class="nav-menu-dropdown w-dropdown">
+              <div class="nav-link fitness w-dropdown-toggle">
+                <div class="text-block-24">Fitnes</div>
+                <div class="nav-caret w-icon-dropdown-toggle"></div>
+              </div>
+              <nav class="nav-mega-menu-dropdown-list w-dropdown-list">
+                <div class="mega-nav-dropdown-list-wrapper">
+                  <ul role="list" class="grid-layout desktop-3-column tablet-1-column grid-gap-sm w-list-unstyled">
+                    <li id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e6d-ad6d2e56"
+                      class="list-item w-node-f1e078f5-694d-4383-7b5a-5b7c0e01dce8-0740e985">
+                      <div class="w-layout-grid grid-layout desktop-3-column tablet-1-column grid-gap-sm">
+                        <div class="div-block-nav">
+                          <div class="eyebrow">Zdravie a fitnes</div>
+                          <ul role="list" class="nav-mega-menu-list w-list-unstyled">
+                            <li class="utility-margin-bottom-0">
+                              <a href="fitnes.html" class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2e9d-ad6d2e56"
+                                  class="w-node-f1e078f5-694d-4383-7b5a-5b7c0e01dd1d-0740e985">
+                                  <div class="text-block-4">jednorazový vstup</div>
+                                  <div class="paragraph-sm utility-text-secondary">za vstup</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="fitnes.html" class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ea8-ad6d2e56"
+                                  class="w-node-f1e078f5-694d-4383-7b5a-5b7c0e01dd25-0740e985">
+                                  <div>mesačné členstvo</div>
+                                  <div class="paragraph-sm utility-text-secondary">za mesiac</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="fitnes.html" class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2eb3-ad6d2e56"
+                                  class="w-node-f1e078f5-694d-4383-7b5a-5b7c0e01dd2d-0740e985">
+                                  <div class="text-block-7">jednorazová platba</div>
+                                  <div class="paragraph-sm utility-text-secondary">3 mesačné členstvo</div>
+                                </div>
+                              </a>
+                            </li>
+                            <li class="utility-margin-bottom-0">
+                              <a href="fitnes.html" class="mega-nav-link-item w-inline-block">
+                                <div class="icon-medium"></div>
+                                <div id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2eb3-ad6d2e56"
+                                  class="w-node-f1e078f5-694d-4383-7b5a-5b7c0e01dd35-0740e985">
+                                  <div class="text-block-7">jednorazová platba</div>
+                                  <div class="paragraph-sm utility-text-secondary">1 ročné členstvo<br><br></div>
+                                </div>
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </li>
+                    <li id="w-node-_016f5a0a-5b63-edde-82c5-e2b2ad6d2ede-ad6d2e56"
+                      class="flex-horizontal w-node-f1e078f5-694d-4383-7b5a-5b7c0e01dd3c-0740e985">
+                      <a href="mailto:kontact-maca@gmail.com"
+                        class="card-link inverse-card-link flex-child-expand c-ard-nav w-inline-block">
+                        <div class="card-body card-nav">
+                          <div class="h3-heading">Nájdite pokoj a silu</div>
+                          <p class="paragraph-sm utility-text-inverse-secondary">Spojte fitnes s relaxáciou.</p>
+                          <div class="utility-margin-top-auto">
+                            <div class="button-group">
+                              <div class="text-button secondary-text-button text-button-on-inverse">
+                                <div class="text-block-9">Pripojte sa teraz</div>
+                                <div class="button-icon"><svg xmlns="http://www.w3.org/2000/svg" width="100%"
+                                    height="100%" viewbox="0 0 16 16" fill="none">
+                                    <path d="M2 8H14.5M14.5 8L8.5 2M14.5 8L8.5 14" stroke="currentColor"
+                                      stroke-width="2" stroke-linejoin="round"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </li>
+          <li class="nav-menu-list-item">
+            <a href="mailto:macagymspa@gmail.com" class="nav-link w-inline-block">Kontakt</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="nav-mobile-menu-button w-nav-button">
+      <div class="icon icon-on-inverse"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+          viewbox="0 0 24 24">
+          <g class="nc-icon-wrapper" stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" fill="none"
+            stroke="currentColor" stroke-miterlimit="10">
+            <line x1="1" y1="12" x2="23" y2="12" stroke="currentColor"></line>
+            <line x1="1" y1="5" x2="23" y2="5"></line>
+            <line x1="1" y1="19" x2="23" y2="19"></line>
+          </g>
+        </svg></div>
+    </div>
+  </div>
+</div>
+
+<section class="maca-agreement" aria-labelledby="maca-agreement-title">
+  <div class="maca-agreement__inner">
+    <p class="maca-agreement__eyebrow">Dokumenty a súhlasy</p>
+    <h2 class="maca-agreement__title" id="maca-agreement-title">Potvrdenie jednorazového vstupu</h2>
+    <p class="maca-agreement__intro">
+      Pred dokončením registrácie si prosím prečítajte podmienky jednorazového vstupu do fitness centra Maca Gym &amp; SPA
+      a potvrďte povinný súhlas. Táto sekcia slúži ako zmluvné podmienky bez podpisového poľa.
+    </p>
+
+    <div class="maca-agreement__plan" aria-label="Vybraný typ vstupu">
+      <div>
+        <p class="maca-agreement__plan-label">Vybraný typ vstupu</p>
+        <h3 class="maca-agreement__plan-name">Jednorazový vstup</h3>
+        <p class="maca-agreement__plan-description">
+          Jednorazový vstup do fitness centra Maca Gym &amp; SPA. Platí pre jeden deň bez obmedzenia počtu hodín počas prevádzkových hodín.
+        </p>
+      </div>
+      <div class="maca-agreement__plan-price">15 € / vstup</div>
+    </div>
+
+    <div class="maca-agreement__layout" id="maca-agreement-widget">
+      <div class="maca-agreement__viewer">
+        <div class="maca-agreement__toolbar">
+          <div class="maca-agreement__toolbar-left">
+            <span class="maca-agreement__pill is-accent">Podmienky vstupu</span>
+            <span class="maca-agreement__pill">1 dokument</span>
+          </div>
+        </div>
+
+        <div class="maca-agreement__document-shell">
+          <div class="maca-agreement__document">
+            <h3>ZMLUVA O JEDNORAZOVOM VSTUPE do fitness centra Maca Gym &amp; SPA</h3>
+            <p>uzatvorená podľa § 52 Zákona č. 40/1964 Zb. Občiansky zákonník</p>
+
+            <h4>Zmluvné strany</h4>
+            <p><strong>1. Prevádzkovateľ</strong></p>
+            <ul>
+              <li>Obchodné meno: OUTFITO, s.r.o.</li>
+              <li>Sídlo: Továrenská 12, Bratislava 81109</li>
+              <li>IČO: 55 333 028</li>
+              <li>DIČ: 2121973986</li>
+              <li>IČ DPH: SK2121973986</li>
+              <li>Zapísaný: Obchodný register Mestského súdu Bratislava III odd. Sro vložka č. 168879/B</li>
+              <li>Zastúpený: Mgr. Vladimír Lexa, konateľ</li>
+              <li>Emailová adresa: macagymspa@gmail.com</li>
+              <li>Telefónne číslo: +421 949 001 455</li>
+              <li>Prevádzka: Maca Gym &amp; SPA, Radlinského 27, 811 03 Bratislava</li>
+              <li>Webová stránka: www.macagym.sk</li>
+              <li>Bankové spojenie: SK29 1100 0000 0029 4515 2491</li>
+            </ul>
+            <p>(ďalej len „Prevádzkovateľ“)</p>
+
+            <p><strong>2. Návštevník</strong></p>
+            <div class="maca-agreement__member-fields" id="maca-agreement-member-fields">
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-name">Meno a priezvisko:</label>
+                <input id="maca-member-name" name="member_name" type="text" autocomplete="name" required />
+                <span class="maca-agreement__field-error">Vyplňte meno a priezvisko.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-address">Adresa trvalého bydliska:</label>
+                <input id="maca-member-address" name="member_address" type="text" autocomplete="street-address"
+                  required />
+                <span class="maca-agreement__field-error">Vyplňte adresu trvalého bydliska.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-correspondence-address">Korešpondenčná adresa <span
+                    class="maca-agreement__optional">(voliteľné)</span>:</label>
+                <input id="maca-member-correspondence-address" name="member_correspondence_address" type="text"
+                  autocomplete="street-address" />
+                <label class="maca-agreement__same-address" for="maca-member-same-address">
+                  <input id="maca-member-same-address" name="member_same_correspondence_address" type="checkbox" />
+                  <span>Moja korešpondenčná adresa je rovnaká ako adresa trvalého bydliska.</span>
+                </label>
+                <span class="maca-agreement__field-error">Toto pole je voliteľné.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-birth-date">Dátum narodenia:</label>
+                <input id="maca-member-birth-date" name="member_birth_date" type="date" required />
+                <span class="maca-agreement__field-error">Vyplňte dátum narodenia.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-email">E-mail:</label>
+                <input id="maca-member-email" name="member_email" type="email" autocomplete="email" required />
+                <span class="maca-agreement__field-error">Vyplňte platnú e-mailovú adresu.</span>
+              </div>
+
+              <div class="maca-agreement__member-field">
+                <label for="maca-member-phone">Telefón:</label>
+                <input id="maca-member-phone" name="member_phone" type="tel" autocomplete="tel" required />
+                <span class="maca-agreement__field-error">Vyplňte telefónne číslo.</span>
+              </div>
+            </div>
+            <p>(ďalej len „Člen“).</p>
+
+            <p>
+              Prevádzkovateľ a Člen uzatvárajú medzi sebou túto zmluvu o členstve vo fitness centre Maca Gym &amp; SPA,
+              Radlinského 27, 811 03 Bratislava (ďalej len „Zmluva“). Táto zmluva upravuje zmluvné vzťahy medzi
+              Prevádzkovateľom a Členom. Vzťahy neupravené touto Zmluvou a všeobecnými zmluvnými podmienkami
+              (ďalej len „VZP“), ktoré tvoria neoddeliteľnú časť zmluvy, sa riadia príslušnými ustanoveniami
+              zákona č. 40/1964 Zb. Občiansky zákonník (ďalej len ako „občiansky zákonník“) v znení prijatých zmien.
+            </p>
+
+            <h4>Vybraný typ vstupu</h4>
+            <p>
+              Názov: <strong>Jednorazový vstup</strong><br />
+              Cena: <strong>15 € / vstup</strong>
+            </p>
+
+            <h4>1. Predmet zmluvy</h4>
+            <p>
+              1.1. Na základe Zmluvy sa prevádzkovateľ zaväzuje poskytovať Členovi po dobu trvania Zmluvy služby
+              fitness centra (zahŕňajúce všetky fitnes zariadenia, sprchy, šatne a pod.) a umožniť členovi klubu
+              neobmedzený vstup do fitness centra Maca Gym &amp; SPA v súlade s prevádzkovým poriadkom prevádzkovateľa
+              (príloha č. 2 Zmluvy) a to za nasledovných podmienok: Typ poskytovaného členstva: plán Aktív,
+              59 € / mesiac (ďalej len „Služby“)
+            </p>
+            <p>1.2. Službu možno využívať počas prevádzkových hodín fitness centra Maca Gym &amp; SPA, v zmysle
+              prevádzkového poriadku. Jednorazový vstup oprávňuje Návštevníka na pobyt v priestoroch fitness centra
+              v deň uhradenia poplatku, bez obmedzenia počtu hodín počas prevádzkových hodín daného dňa.</p>
+            <p>
+              1.3. Člen sa zaväzuje platiť prevádzkovateľovi odplatu za poskytovanie dohodnutej Služby, a to vo výške,
+              spôsobom a za podmienok stanovených Zmluvou a Všeobecnými zmluvnými podmienkami (ďalej len „VZP“),
+              ktoré tvoria neoddeliteľnú súčasť tejto Zmluvy.
+            </p>
+
+            <h4>2. Platnosť vstupu</h4>
+            <p>2.1. Jednorazový vstup je platný výlučne v deň jeho zakúpenia a úhrady poplatku.</p>
+            <p>
+              2.2. Nevyužitý jednorazový vstup nie je možné presunúť na iný deň ani previesť na inú osobu.
+            </p>
+            <p>
+              2.3. Jednorazový vstup neoprávňuje Návštevníka na akékoľvek výhody ani zľavy súvisiace s členstvom
+              vo fitness centre.
+            </p>
+
+            <h4>3. Odplata za poskytovanie Služby</h4>
+            <p>
+              3.1. Odplata za poskytované Služby bola dohodou zmluvných strán stanovená vo výške určenej podľa cenníka
+              služieb na webovej stránke www.macagym.sk alebo VZP. (ďalej len ako „Odplata za poskytované Služby“
+              alebo „Členský poplatok“).
+            </p>
+            <p>
+              3.2. Zaplatený poplatok za jednorazový vstup nie je možné vrátiť. Skutočný rozsah využívania
+              priestorov a zariadení fitness centra Maca Gym &amp; SPA počas daného dňa nie sú okolnosťami
+              určujúcimi výšku poplatku.
+            </p>
+            <p>
+              3.3. Zmluvné strany sa dohodli, že Člen zaplatí Odplatu za poskytované služby jednorazovo vopred
+              (ďalej len ako „Obdobie“) na základe uzatvorenia tejto Zmluvy.
+            </p>
+
+            <h4>4. Záverečné ustanovenia</h4>
+            <p>
+              4.1. Potvrdením týchto Podmienok sa Návštevník zaväzuje, že sa oboznámil s ich obsahom, ako aj s VZP
+              a prevádzkovým poriadkom fitness centra Maca Gym &amp; SPA, a bude ich dodržiavať.
+            </p>
+            <p>
+              4.2. Návštevník je povinný rešpektovať pokyny personálu fitness centra. Návštevník berie na vedomie,
+              že priestory fitness centra sú alebo môžu byť monitorované kamerovým bezpečnostným systémom.
+            </p>
+            <p>
+              4.3. Jednorazový vstup je oprávnená zakúpiť fyzická osoba staršia ako 15 rokov. Pri osobách mladších
+              ako 18 rokov je na vstup potrebné zastúpenie zákonným zástupcom.
+            </p>
+            <p>4.4. Návštevník prehlasuje, že si je vedomý svojho zdravotného stavu, je plne spôsobilý a využíva
+              fitnes zariadenia na vlastné riziko.</p>
+            <p>
+              4.5. Všetky služby pre Návštevníkov sú poskytované a využívanie priestorov a zariadení fitness centra
+              Maca Gym &amp; SPA sa uskutočňuje výlučne v súlade s týmito Podmienkami, VZP a Prevádzkovým poriadkom.
+            </p>
+            <p>
+              4.6. Ak by bolo alebo sa stalo niektoré ustanovenie týchto Podmienok alebo VZP neplatné, neúčinné
+              alebo nevykonateľné, ostáva platnosť ostatných ustanovení nedotknutá. Neplatné, neúčinné alebo
+              nevykonateľné ustanovenie bude nahradené novým platným, účinným a vykonateľným ustanovením, ktoré sa
+              svojím obsahom bude čo najviac približovať zámeru a významu nahradeného ustanovenia.
+            </p>
+            <p>
+              4.7. Prevádzkovateľ je oprávnený kedykoľvek jednostranne zmeniť alebo doplniť tieto VZP, pričom
+              o zmenách je povinný informovať Návštevníkov formou ich zverejnenia na internetovej stránke fitness
+              centra Maca Gym &amp; SPA www.macagymspa.sk, ako aj v samotnom zariadení, s uvedením dátumu, od ktorého
+              nadobudnú platnosť a účinnosť.
+            </p>
+            <p>
+              
+              písomnosť/zásielka vrátená. Účinky doručenia nastávajú aj vtedy, ak adresát odmietne prevziať písomnosť
+              a to dňom jej vrátenia. V prípade elektronickej komunikácie (body e-f tohto článku zmluvy) sa fikcia
+              doručenia uplatní nasledujúci kalendárny deň po dni odoslania správy Prevádzkovateľom Členovi.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="maca-agreement__consents">
+        <label class="maca-agreement__consent">
+          <input type="checkbox" id="maca-agreement-required" data-required="true" />
+          <span>
+            <strong>Vyhlasujem, že som si prečítal/a podmienky jednorazového vstupu a súhlasím s ich obsahom.</strong>
+            <br />
+            <small>Tento súhlas je povinný pre pokračovanie v registrácii.</small>
+          </span>
+        </label>
+      </div>
+
+      <p class="maca-agreement__form-error" id="maca-agreement-error" role="alert" aria-live="polite">
+        Pred pokračovaním vyplňte všetky údaje v podmienkach vstupu.
+      </p>
+
+      <div class="maca-agreement__actions">
+        <p class="maca-agreement__hint">Pokračovanie sa aktivuje po potvrdení povinného súhlasu.</p>
+        <a class="maca-agreement__button" id="maca-agreement-continue"
+          href="https://www.macagym.sk/maca-thank-you-embed.html" aria-disabled="true">
+          Pokračovať
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var required = document.getElementById("maca-agreement-required");
+    var continueButton = document.getElementById("maca-agreement-continue");
+    var memberFields = Array.prototype.slice.call(document.querySelectorAll("#maca-agreement-member-fields input[required]"));
+    var errorMessage = document.getElementById("maca-agreement-error");
+    var documentPanel = document.querySelector(".maca-agreement__document");
+    var permanentAddress = document.getElementById("maca-member-address");
+    var correspondenceAddress = document.getElementById("maca-member-correspondence-address");
+    var sameAddress = document.getElementById("maca-member-same-address");
+
+    if (!required || !continueButton) return;
+
+    function isFieldValid(field) {
+      return field.value.trim() !== "" && field.checkValidity();
+    }
+
+    function setFieldError(field, showError) {
+      field.classList.toggle("is-invalid", showError);
+      field.closest(".maca-agreement__member-field").classList.toggle("is-invalid", showError);
+      field.setAttribute("aria-invalid", showError ? "true" : "false");
+    }
+
+    function validateMemberFields(showErrors) {
+      var firstInvalidField = null;
+
+      memberFields.forEach(function (field) {
+        var fieldIsInvalid = !isFieldValid(field);
+        if (fieldIsInvalid && !firstInvalidField) {
+          firstInvalidField = field;
+        }
+        if (showErrors || !fieldIsInvalid) {
+          setFieldError(field, fieldIsInvalid && showErrors);
+        }
+      });
+
+      if (errorMessage) {
+        errorMessage.classList.toggle("is-visible", Boolean(firstInvalidField && showErrors));
+      }
+
+      if (firstInvalidField && showErrors) {
+        if (documentPanel) {
+          documentPanel.scrollTo({
+            top: Math.max(firstInvalidField.offsetTop - 110, 0),
+            behavior: "smooth"
+          });
+        }
+        firstInvalidField.focus({ preventScroll: true });
+      }
+
+      return !firstInvalidField;
+    }
+
+    function syncConsentState(showErrors) {
+      var memberFieldsAreValid = validateMemberFields(Boolean(showErrors));
+      var canContinue = required.checked && memberFieldsAreValid;
+      continueButton.setAttribute("aria-disabled", canContinue ? "false" : "true");
+      return canContinue;
+    }
+
+    required.addEventListener("change", function () {
+      syncConsentState(required.checked);
+    });
+
+    memberFields.forEach(function (field) {
+      field.addEventListener("input", function () {
+        syncConsentState(false);
+      });
+      field.addEventListener("blur", function () {
+        if (field.classList.contains("is-invalid")) {
+          validateMemberFields(true);
+        }
+      });
+    });
+
+    function syncSameAddress() {
+      if (!sameAddress || !permanentAddress || !correspondenceAddress) return;
+
+      if (sameAddress.checked) {
+        correspondenceAddress.value = permanentAddress.value;
+        correspondenceAddress.setAttribute("readonly", "readonly");
+      } else {
+        correspondenceAddress.removeAttribute("readonly");
+      }
+    }
+
+    if (sameAddress && permanentAddress && correspondenceAddress) {
+      sameAddress.addEventListener("change", function () {
+        syncSameAddress();
+        syncConsentState(false);
+      });
+
+      permanentAddress.addEventListener("input", function () {
+        if (sameAddress.checked) {
+          syncSameAddress();
+        }
+      });
+    }
+
+    continueButton.addEventListener("click", function (event) {
+      if (!syncConsentState(true)) {
+        event.preventDefault();
+        return;
+      }
+
+      // ── Pabbly Connect webhook ──────────────────────────────────
+      event.preventDefault();
+      var dest = continueButton.getAttribute("href");
+      var payload = {
+        name:                    (document.getElementById("maca-member-name") || {}).value || "",
+        birth_date:              (document.getElementById("maca-member-birth-date") || {}).value || "",
+        email:                   (document.getElementById("maca-member-email") || {}).value || "",
+        phone:                   (document.getElementById("maca-member-phone") || {}).value || "",
+        address:                 (document.getElementById("maca-member-address") || {}).value || "",
+        correspondence_address:  (document.getElementById("maca-member-correspondence-address") || {}).value || "",
+        membership_plan:         "Jednorazový vstup — 15 €",
+        form_page:               window.location.href,
+        submitted_at:            new Date().toISOString()
+      };
+      fetch("https://connect.pabbly.com/webhook-listener/webhook/IjU3NjUwNTZhMDYzMjA0M2Q1MjY4NTUzNCI_3D_pc/IjU3NjcwNTY5MDYzZjA0MzY1MjZhNTUzNzUxM2Ii_pc", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      }).catch(function () {});
+      // Navigate immediately — don't wait for webhook response
+      window.location.href = dest;
+    });
+
+    syncConsentState(false);
+  })();
+</script>
+<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=67fbf89115ec94e322cf2a7d"
+  type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+  crossorigin="anonymous"></script>
+<script src="js/webflow.js" type="text/javascript"></script>
