@@ -54,7 +54,7 @@
               </p>
             </div>
             <label class="maca-cookie-toggle">
-              <input type="checkbox" id="macaCookieAnalytical">
+              <input type="checkbox" id="macaCookieAnalytical" checked>
               <span class="maca-cookie-slider"></span>
             </label>
           </div>
