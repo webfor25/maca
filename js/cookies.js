@@ -59,21 +59,7 @@
             </label>
           </div>
 
-          <!-- Marketing Cookies -->
-          <div class="maca-cookie-row">
-            <div class="maca-cookie-info">
-              <div class="maca-cookie-option-title-wrap">
-                <h4 class="maca-cookie-option-title">Marketingové</h4>
-              </div>
-              <p class="maca-cookie-option-desc">
-                Používajú sa na zobrazovanie relevantných reklám a meranie efektivity reklamných kampaní na našich stránkach aj mimo nich.
-              </p>
-            </div>
-            <label class="maca-cookie-toggle">
-              <input type="checkbox" id="macaCookieMarketing">
-              <span class="maca-cookie-slider"></span>
-            </label>
-          </div>
+          <!-- Marketing Cookies removed - not in use -->
         </div>
 
         <div class="maca-cookie-actions">
@@ -98,7 +84,6 @@
     var btnAcceptAll = document.getElementById("macaCookieBtnAcceptAll");
     
     var checkAnalytical = document.getElementById("macaCookieAnalytical");
-    var checkMarketing = document.getElementById("macaCookieMarketing");
 
     function savePreferences(prefs) {
       localStorage.setItem(CONSENT_KEY, JSON.stringify(prefs));
@@ -126,7 +111,7 @@
       savePreferences({
         necessary: true,
         analytical: checkAnalytical.checked,
-        marketing: checkMarketing.checked
+        marketing: false
       });
     });
 
